@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using JetBrains.Annotations;
 
 namespace Tests.NetworkTest.Connections
 {
     public class PlayerList: List<Player>
     {
-        public List<NetworkStream> All_Players_TCP_Stream;
-        public List<IPEndPoint> All_Player_End_Point;
+        public List<NetworkStream> AllPlayersTcpStream;
+        public List<IPEndPoint> AllPlayerEndPoint;
         
         private List<NetworkStream> Update_Players_TCP_Stream()
         {
@@ -36,16 +37,26 @@ namespace Tests.NetworkTest.Connections
 
         public void Update_Player_Connections()
         {
-            All_Player_End_Point = Update_Players_UDP_Endpoints();
-            All_Players_TCP_Stream = Update_Players_TCP_Stream();
+            AllPlayerEndPoint = Update_Players_UDP_Endpoints();
+            AllPlayersTcpStream = Update_Players_TCP_Stream();
         }
     }
 }
 
 public struct Player
 {
-    public IPAddress IPAddress;
+    [CanBeNull] public IPAddress IPAddress;
     public string Name;
-    public NetworkStream TcpStream;
-    public IPEndPoint UDPEndpoint;
+    [CanBeNull] public NetworkStream TcpStream;
+    [CanBeNull] public IPEndPoint UDPEndpoint;
+    [CanBeNull] public TcpClient TClient;
+
+    public Player(string name, IPAddress ip = null, NetworkStream tcpstream = null, IPEndPoint udpendpoint = null, TcpClient tcpClient = null)
+    {
+        Name = name;
+        IPAddress = ip;
+        TcpStream = tcpstream;
+        UDPEndpoint = udpendpoint;
+        TClient = tcpClient;
+    }
 }

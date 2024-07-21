@@ -73,3 +73,5 @@ crashlytics-build.properties
 /Assets/Plugins
 /Packages
 .vsconfig
+/.idea
+/Assets/TextMesh Pro

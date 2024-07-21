@@ -9,7 +9,7 @@ public class MessageInterpreter : MonoBehaviour
     Dictionary<string,Func> interpreter_functions;
     void Start()
     {
-        // Inicializar as funções aqui
+        interpreter_functions = new Dictionary<string, Func>();
     }
 
     void Interpret(Message message)

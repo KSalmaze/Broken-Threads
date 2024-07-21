@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using Tests.NetworkTest.Connections;
 using UnityEngine;
 
 public class ConnectionSingleton
@@ -25,7 +27,8 @@ public class ConnectionSingleton
     
     // Informacoes de Player
     public string Player_Name;
-    public string Player_IP;
+    public IPAddress Player_IP;
 
     // Conection
+    public Connection Connection;
 }
