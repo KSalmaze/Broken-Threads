@@ -17,7 +17,7 @@ namespace Tests.NetworkTest.Connections
         private IPAddress _hostip;
         private int _port;
 
-        public void Connect(string hostip, int port)
+        public async Task Connect(string hostip, int port)
         {
             Debug.Log("Tentando conectar");
             _port = port;
@@ -25,7 +25,7 @@ namespace Tests.NetworkTest.Connections
             
             client = new TcpClient();
             Debug.Log("Tentando se conectar ao server");
-            client.ConnectAsync(_hostip, port);
+            await client.ConnectAsync(_hostip, port);
             stream = client.GetStream();
 
             Debug.Log("Conectado");
