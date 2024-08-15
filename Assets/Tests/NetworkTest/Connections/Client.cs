@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Tests.NetworkTest.Connections
 {
@@ -18,6 +19,7 @@ namespace Tests.NetworkTest.Connections
 
         public void Connect(string hostip, int port)
         {
+            Debug.Log("Tentando conectar");
             _port = port;
             _hostip = IPAddress.Parse(hostip);
             
@@ -25,6 +27,7 @@ namespace Tests.NetworkTest.Connections
             client.Connect(_hostip, port);
             stream = client.GetStream();
 
+            Debug.Log("Conectado");
             Task.Run(async () => await Receive_TCP());
         }
 
