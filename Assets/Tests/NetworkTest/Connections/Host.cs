@@ -2,7 +2,6 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Tests.NetworkTest.Connections
@@ -50,6 +49,8 @@ namespace Tests.NetworkTest.Connections
 
         private async Task NewClient()
         {
+            Debug.Log("Iniciando conexão com client");
+            
             TcpClient client = await _tcpserver.AcceptTcpClientAsync();
             NetworkStream clientStream = client.GetStream();
             
@@ -63,7 +64,7 @@ namespace Tests.NetworkTest.Connections
             _playerList.Add(new Player(playerName, tcpClient: client, tcpstream: clientStream, udpendpoint: remoteEndPoint));
             _serverLivre = true;
             
-            Console.WriteLine("Conexão estabelecida com sucesso");
+            Debug.Log("Conexão estabelecida com sucesso");
         }
         
         public async override Task TCP_Send_Message(Message message)

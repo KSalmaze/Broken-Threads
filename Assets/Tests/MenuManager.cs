@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Tests.NetworkTest.Connections;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 
 public class MenuManager : MonoBehaviour
 {
@@ -29,8 +28,10 @@ public class MenuManager : MonoBehaviour
 
     public void ClientIP(TMP_InputField inputField)
     {
+        Debug.Log("Tantando abrir conexão");
         if (IsValidIPAddress(inputField.text))
         {
+            Debug.Log("Ip validado");
             Client client = (ConnectionSingleton.Instance.Connection = new Client()) as Client;
             Task.Run(() => client.Connect(inputField.text, 5020));
         }
