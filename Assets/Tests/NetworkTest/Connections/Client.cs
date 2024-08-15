@@ -24,7 +24,8 @@ namespace Tests.NetworkTest.Connections
             _hostip = IPAddress.Parse(hostip);
             
             client = new TcpClient();
-            client.Connect(_hostip, port);
+            Debug.Log("Tentando se conectar ao server");
+            client.ConnectAsync(_hostip, port);
             stream = client.GetStream();
 
             Debug.Log("Conectado");
@@ -63,6 +64,7 @@ namespace Tests.NetworkTest.Connections
             {
                 if (client.Connected)
                 {
+                    Debug.Log("Recebendo mensagem");
                     byte[] bytesFrom = new byte[10500];
                     stream.Read(bytesFrom, 0, bytesFrom.Length);
 
