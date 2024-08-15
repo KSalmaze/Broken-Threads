@@ -2,6 +2,7 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Tests.NetworkTest.Connections
@@ -19,14 +20,17 @@ namespace Tests.NetworkTest.Connections
         private TcpListener _tcpserver;
         private UdpClient _udpServer;
         
-        public async Task OpenServer(string ip, int port)
+        public async Task OpenServer(string ip, int port = 5020)
         {
             IPAddress ipAddress = IPAddress.Parse(ip);
             ConnectionSingleton.Instance.Player_IP = ipAddress;
             _tcpserver = new TcpListener(ipAddress, port);
+            Debug.Log("Server tcp aberto");
             _udpServer = new UdpClient(new IPEndPoint(ipAddress, port + 1));
+            Debug.Log("Server udp aberto");
             _acceptNewClients = true;
             Task.Run(async () => await SearchForNewClients());
+            Debug.Log("Server funcional");
         }
 
         private bool _acceptNewClients;
@@ -49,8 +53,6 @@ namespace Tests.NetworkTest.Connections
             TcpClient client = await _tcpserver.AcceptTcpClientAsync();
             NetworkStream clientStream = client.GetStream();
             
-            Task.Run(async () => await TCP_Send_Message(new Message("IGN", serializer.Serialize("Connect to UDP"))));
-            
             byte[] bytesToSend = serializer.Serialize(new Message("IGN", new byte[]{0}));
             clientStream.Write(bytesToSend, 0, bytesToSend.Length);
             
@@ -60,11 +62,18 @@ namespace Tests.NetworkTest.Connections
             string playerName = serializer.Deserialize<Message>(receivedResult.Buffer).User;
             _playerList.Add(new Player(playerName, tcpClient: client, tcpstream: clientStream, udpendpoint: remoteEndPoint));
             _serverLivre = true;
+            
+            Console.WriteLine("Conexão estabelecida com sucesso");
         }
         
         public async override Task TCP_Send_Message(Message message)
         {
-            throw new NotImplementedException();
+            byte[] bytesToSend = serializer.Serialize(message);
+
+            foreach (NetworkStream clientStream in _playerList.AllPlayersTcpStream)
+            {
+                clientStream.Write(bytesToSend, 0, bytesToSend.Length);
+            }
         }
 
         public async Task TCP_Send_Message(Message message, string player)
@@ -92,6 +101,12 @@ namespace Tests.NetworkTest.Connections
         private async Task Receive_TCP()
         {
             throw new System.NotImplementedException();
+        }
+
+        public override void Quit()
+        {
+            _tcpserver.Stop();
+            _udpServer.Close();
         }
     }
 }

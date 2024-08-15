@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using System.Threading.Tasks;
 using Tests.NetworkTest.Connections;
 using UnityEngine;
 
@@ -46,7 +47,7 @@ public class ConnectionSingleton
                 // Enviar por udp
             }
 
-            // Esperar o tempo de atualização
+            //await ;
         }
     }
 

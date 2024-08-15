@@ -9,5 +9,5 @@ public abstract class TriggerBehavior : MonoBehaviour
     // Quando a start rodar, adicionar a lista global de triggers
     // Quando o trigger for disparado, atualizar a lista de triggers disparados (host), e informar os outros jogadores
 
-    abstract void OnTrigger();
+    protected abstract void OnTrigger();
 }
