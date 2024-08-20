@@ -9,23 +9,13 @@ using Random = UnityEngine.Random;
 public class WeaponScript : MonoBehaviour
 {
     // TO-DO
-    //  > implementar spread
-    //
     //  > colocar barrinha de reload embaixo da crosshair, branco com fundo preto e chanfro vermelho do parcial
     //  
     //  investigar se tem que puxar o bolt pra tras quando acaba a bala de uma closed bolt
-    //
-    //  fazer verificacao se tem municao o suficiente pra fazer o reload (totalAmmo>magSize)
-    //
-    //  ta fazendo reload parcial mesmo com a mag vazia
-    //
+    // 
     //  procurar saber como que faz pra ver o tempo que cada script demora pra executar
     //      se esse script for muito pesado, testar otimizar trocando variaveis da página weapon
     //      pra variaveis locais
-    //
-    //  na hora de separar os scripts, fazer que os scripts das armas estejam na mesma pasta que o ShootingScript
-    //      pra que usem o mesmo namespace
-    //      ou criar um script so pra definir o namespace e importar nos outros scripts que o usarem
     //
     //  fazer compras de arma terem um cooldown pra nao travar o script de trocar de arma
     //
@@ -113,7 +103,9 @@ public class WeaponScript : MonoBehaviour
                 
                 GameObject hitObject = hit.collider.gameObject;
                 // if (terreno) return {}{}
-                hitObject.GetComponent<Health>().TakeDamage(damage);
+                Vector3 hitDirection = (hit.point - transform.position).normalized;
+                float dot = Vector3.Dot(rayDirection, hit.normal);
+                hitObject.GetComponent<Health>().TakeDamage(damage, dot);
                 
                 //prepare to chain raycasts
                 rayOrigin = hit.point - hit.normal; // slightly offset to prevent self-collision

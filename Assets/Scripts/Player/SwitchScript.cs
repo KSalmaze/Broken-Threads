@@ -25,9 +25,6 @@ public class SwitchScript : MonoBehaviour
     private const int InventorySize = 3;
     private Dictionary<int, WeaponInfoStruct> inventoryDict;
     
-    // TO DO
-    //
-    //
     
     private void Start()
     { 
