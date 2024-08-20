@@ -24,10 +24,12 @@ namespace Tests.NetworkTest.Connections
             IPAddress ipAddress = IPAddress.Parse(ip);
             ConnectionSingleton.Instance.Player_IP = ipAddress;
             _tcpserver = new TcpListener(ipAddress, port);
+            _tcpserver.Start();
             Debug.Log("Server tcp aberto");
             _udpServer = new UdpClient(new IPEndPoint(ipAddress, port + 1));
             Debug.Log("Server udp aberto");
             _acceptNewClients = true;
+            _serverLivre = true;
             Task.Run(async () => await SearchForNewClients());
             Debug.Log("Server funcional");
         }
@@ -39,8 +41,10 @@ namespace Tests.NetworkTest.Connections
         {
             while (_acceptNewClients)
             {
+                Debug.Log(_tcpserver.Pending());
                 if (_serverLivre && _tcpserver.Pending())
                 {
+                    Debug.Log("Aceitando client");
                     _serverLivre = false;
                     Task.Run(async () => await NewClient());
                 }
