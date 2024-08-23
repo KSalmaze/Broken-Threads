@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -30,7 +31,7 @@ namespace Tests.NetworkTest.Connections
             Debug.Log("Server udp aberto");
             _acceptNewClients = true;
             _serverLivre = true;
-            Task.Run(async () => await SearchForNewClients());
+            _ = Task.Run(async () => await SearchForNewClients());
             Debug.Log("Server funcional");
         }
 
@@ -46,7 +47,7 @@ namespace Tests.NetworkTest.Connections
                 {
                     Debug.Log("Aceitando client");
                     _serverLivre = false;
-                    Task.Run(async () => await NewClient());
+                    _ = Task.Run(async () => await NewClient());
                 }
             }
         }
@@ -69,6 +70,9 @@ namespace Tests.NetworkTest.Connections
             _serverLivre = true;
             
             Debug.Log("Conexão estabelecida com sucesso");
+
+            _ = Task.Run(async () => await Receive_TCP());
+            _ = Task.Run(async () => await Receive_UDP());
         }
         
         public async override Task TCP_Send_Message(Message message)
@@ -98,14 +102,36 @@ namespace Tests.NetworkTest.Connections
 
         private async Task Receive_UDP()
         {
-            // A primeira vez será para inicializar o End point apenas depois a veria
-            // um receive normal
-            throw new System.NotImplementedException();
+            while (true)
+            {
+                UdpReceiveResult receivedResult = await _udpServer.ReceiveAsync();
+                MessageInterpreter.Instance.Interpret(serializer.Deserialize<Message>(receivedResult.Buffer));
+                Debug.Log("Mensagem UDP recebida");
+            }
         }
         
         private async Task Receive_TCP()
         {
-            throw new System.NotImplementedException();
+            while (true)
+            {
+                if (_playerList[0].TClient != null && _playerList[0].TClient.Available > 0)
+                {
+                    byte[] bytesFrom = new byte[10025];
+                    await _playerList[0].TcpStream.ReadAsync(bytesFrom, 0, bytesFrom.Length);
+                
+                    if (bytesFrom.Length != 0)
+                    {
+                        MessageInterpreter.Instance.Interpret(serializer.Deserialize<Message>(bytesFrom));
+                        Debug.Log("Mensagem TCP recebida");
+                    }
+                    else
+                    {
+                        Debug.Log("Error #45");
+                    }
+                
+                    _playerList[0].TcpStream.Flush();
+                }
+            }
         }
 
         public override void Quit()
