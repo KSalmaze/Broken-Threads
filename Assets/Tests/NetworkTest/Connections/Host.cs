@@ -69,6 +69,7 @@ namespace Tests.NetworkTest.Connections
             _playerList.Add(new Player(playerName, tcpClient: client, tcpstream: clientStream, udpendpoint: remoteEndPoint));
             _serverLivre = true;
             
+            _playerList.Update_Player_Connections();
             Debug.Log("Conexão estabelecida com sucesso");
 
             _ = Task.Run(async () => await Receive_TCP());
@@ -90,9 +91,14 @@ namespace Tests.NetworkTest.Connections
             throw new System.NotImplementedException();
         }
 
-        public async override Task UDP_Send_Message(Message message)
+        public override async Task UDP_Send_Message(Message message)
         {
-            throw new System.NotImplementedException();
+            byte[] bytesToSend = serializer.Serialize(message);
+            
+            foreach (IPEndPoint ipEndPoint in _playerList.AllPlayerEndPoint)
+            {
+                await _udpServer.SendAsync(bytesToSend, bytesToSend.Length, ipEndPoint);
+            }
         }
         
         public async Task UDP_Send_Message(Message message, string player)
