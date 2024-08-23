@@ -76,13 +76,13 @@ namespace Tests.NetworkTest.Connections
             _ = Task.Run(async () => await Receive_UDP());
         }
         
-        public async override Task TCP_Send_Message(Message message)
+        public override async Task TCP_Send_Message(Message message)
         {
             byte[] bytesToSend = serializer.Serialize(message);
 
             foreach (NetworkStream clientStream in _playerList.AllPlayersTcpStream)
             {
-                clientStream.Write(bytesToSend, 0, bytesToSend.Length);
+                clientStream.WriteAsync(bytesToSend, 0, bytesToSend.Length);
             }
         }
 

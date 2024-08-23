@@ -37,20 +37,20 @@ namespace Tests.NetworkTest.Connections
             Task.Run(async () => await Receive_UDP());
         }
         
-        public override Task TCP_Send_Message(Message message)
+        public override async Task TCP_Send_Message(Message message)
         {
-            throw new System.NotImplementedException();
+            byte[] bytesToSend = serializer.Serialize(message);
+            stream.WriteAsync(bytesToSend, 0, bytesToSend.Length);
         }
 
-        public override Task UDP_Send_Message(Message message)
+        public override async Task UDP_Send_Message(Message message)
         {
-            throw new System.NotImplementedException();
+            byte[] messageBytes = serializer.Serialize(message);
+            udp_client.SendAsync(messageBytes, messageBytes.Length);
         }
         
         private async Task Receive_UDP()
         {
-            // Cade a GameJam de uma linha de código?
-            // while (true) { messageInterpreter.Interpret(serializer.Deserialize<Message>((await udp_client.ReceiveAsync()).Buffer)); }
             while (true)
             {
                 UdpReceiveResult udpReceiveResult = await udp_client.ReceiveAsync();
