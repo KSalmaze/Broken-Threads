@@ -48,7 +48,8 @@ public class WeaponScript : MonoBehaviour
     
     private Coroutine reloadingC;
     private Coroutine shootingC;
-    public bool isShooting;
+    public bool isShootingShotgun;
+    public bool isShootingAuto;
     public bool isReloading;
 
     private Dictionary<int, WeaponInfoStruct> inventoryDict;
@@ -93,9 +94,13 @@ public class WeaponScript : MonoBehaviour
             reloadingC = StartCoroutine(Reload(weapon.isClosedBolt));
         }
         //checar duas vezes pra nao dar erro de recarregar e atirar ao mesmo tempo
-        if (isReloading || isShooting) return;
+        if (isReloading || isShootingShotgun) return;
         if (Input.GetKeyDown(KeyCode.Mouse0)) shootingC = StartCoroutine(ShootingAuto());
-        if (Input.GetKeyDown(KeyCode.Mouse1)) shootingC = StartCoroutine(ShootingShotgun());
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if (isShootingAuto) StopCoroutine(shootingC);
+            shootingC = StartCoroutine(ShootingShotgun());
+        }
     }
     
     
@@ -136,31 +141,32 @@ public class WeaponScript : MonoBehaviour
     
     IEnumerator ShootingAuto() //tiro normal / full auto
     {
-        isShooting = true;
+        isShootingAuto = true;
         while (hasAmmo && Input.GetKey(KeyCode.Mouse0)) //se tiver municao e continuar atirando
         {
             Shoot(AutoDamage, 1, AutoSpread);
             ammoText.text = weapon.ammo.ToString("D2") + "/";
             yield return new WaitForSeconds(weapon.fireTime); //muda o tempo em relacao a fire rate da arma
         }
-        isShooting = false;
+        isShootingAuto = false;
     }
     
     
     IEnumerator ShootingShotgun() //tiro alternativo / controlado
     {
-        isShooting = true;
+        isShootingShotgun = true;
         Shoot(ShotgunDamage, ShotgunBulletCount, ShotgunSpread);
         yield return new WaitForSeconds(10*weapon.fireTime); //muda o tempo em relacao a fire rate da arma
-        isShooting = false;
+        isShootingShotgun = false;
     }
     
     
     IEnumerator Reload(bool partial)
     {
         isReloading = true;
-        if (isShooting) StopCoroutine(shootingC); isShooting = false;
-            
+        if (isShootingAuto || isShootingShotgun)
+        { StopCoroutine(shootingC); isShootingAuto = false; isShootingShotgun = false; }
+        
         float reloadTime = partial ? weapon.reloadTimePartial : weapon.reloadTime;
         timerGO.SetActive(true);
         timerSlider.maxValue = weapon.reloadTime;
@@ -192,7 +198,8 @@ public class WeaponScript : MonoBehaviour
     
     public void Stop()
     {
-        if (isShooting)  StopCoroutine(shootingC);  isShooting = false;
         if (isReloading) StopCoroutine(reloadingC); isReloading = false;
+        if (isShootingAuto || isShootingShotgun)
+        { StopCoroutine(shootingC); isShootingAuto = false; isShootingShotgun = false; }
     }
 }
