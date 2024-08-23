@@ -58,9 +58,9 @@ public class WeaponScript : MonoBehaviour
 
     private const int ShotgunDamage = 5;
     private const int ShotgunBulletCount = 10;
-    private const int ShotgunSpread = 30;
+    private const int ShotgunSpread = 25;
     private const int AutoDamage = 35;
-    private const int AutoSpread = 5;
+    private const int AutoSpread = 4;
     private bool hasAmmo = true;
     // VARIAVEL DE FIRETIME
 
@@ -116,8 +116,8 @@ public class WeaponScript : MonoBehaviour
             float rangeLeft = 4 * weapon.range;
             Vector3 rayOrigin = mainCamera.transform.position;
             Vector3 rayDirection = mainCamera.transform.forward;
-            Quaternion spreadRotation = Quaternion.Euler(Random.Range(-weapon.spread/2, weapon.spread/2),
-                                                         Random.Range(-weapon.spread/2, weapon.spread/2), 0f);
+            Quaternion spreadRotation = Quaternion.Euler(Random.Range(-spread/2, spread/2),
+                                                         Random.Range(-spread/2, spread/2), 0f);
             rayDirection = spreadRotation * rayDirection;
             
             if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, rangeLeft))
