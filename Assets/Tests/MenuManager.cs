@@ -9,6 +9,8 @@ using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private TMP_InputField playerName;
+    
     public void SwitchActiveObject(GameObject actual)
     {
         actual.SetActive(!actual.activeSelf);
@@ -16,6 +18,7 @@ public class MenuManager : MonoBehaviour
 
     public void HostIP(TMP_InputField inputField)
     {
+        DefinirNome();
         Debug.Log("Tentando abrir conexão ->" + inputField.text + "<-");
         if (IsValidIPAddress(inputField.text))
         {
@@ -28,6 +31,7 @@ public class MenuManager : MonoBehaviour
 
     public void ClientIP(TMP_InputField inputField)
     {
+        DefinirNome();
         Debug.Log("Tantando abrir conexão");
         if (IsValidIPAddress(inputField.text))
         {
@@ -35,6 +39,11 @@ public class MenuManager : MonoBehaviour
             Client client = (ConnectionSingleton.Instance.Connection = new Client()) as Client;
             Task.Run(async () => await client.Connect(inputField.text, 5020));
         }
+    }
+
+    private void DefinirNome()
+    {
+        ConnectionSingleton.Instance.Player_Name = playerName.text;
     }
     
     static bool IsValidIPAddress(string ipAddress)

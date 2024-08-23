@@ -21,10 +21,6 @@ public class ConnectionSingleton
             return instance;
         }
     }
-
-    private ConnectionSingleton()
-    {
-    }
     
     // Informacoes de Player
     public string Player_Name;

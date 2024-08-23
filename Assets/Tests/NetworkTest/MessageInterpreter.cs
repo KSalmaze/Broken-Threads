@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MessageInterpreter
+public class MessageInterpreter: MonoBehaviour
 {
     // Singleton
     private static MessageInterpreter instance;
@@ -25,9 +25,14 @@ public class MessageInterpreter
         interpreter_functions = new Dictionary<string, Func>();
     }
     
-    delegate void Func(byte[] param, string user); 
+    public delegate void Func(byte[] param, string user); 
     Dictionary<string,Func> interpreter_functions;
 
+    public void AddFunction(string messageTag, Func funtion)
+    {
+        interpreter_functions.Add(messageTag,funtion);
+    }
+    
     public void Interpret(Message message)
     {
         interpreter_functions[message.Tag](message.Content, message.User);
