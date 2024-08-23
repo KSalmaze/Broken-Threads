@@ -14,6 +14,7 @@ namespace WeaponsNS
          public string weaponName;
          public int    damage;
          public int    burstSize;
+         public int    bulletCount;
          public float  fireRate;
          public float  fireTime;
          public int    magSize;

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -80,38 +79,40 @@ public class WeaponScript : MonoBehaviour
     
     void Shoot()
     {
-        Rigidbody bullet = Instantiate(bulletRB, transform.position, transform.rotation);
-        Vector3 forceDirection = transform.up;
-        float forceMagnitude = 25f;
-        bullet.AddForce(forceDirection * forceMagnitude, ForceMode.Impulse);
-        
-        
-        int damage = weapon.damage;
-        float rangeLeft = 4 * weapon.range;
-        Vector3 rayOrigin = mainCamera.transform.position;
-        Vector3 rayDirection = mainCamera.transform.forward;
-        Quaternion spreadRotation = Quaternion.Euler(Random.Range(-weapon.spread, weapon.spread), 
-                                                     Random.Range(-weapon.spread, weapon.spread), 0f);
-        rayDirection = spreadRotation * rayDirection;
-        
-        while (damage > 0)
+        for (int i = 0; i < weapon.bulletCount; i++)
         {
-            if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, rangeLeft))
+            Rigidbody bullet = Instantiate(bulletRB, transform.position, transform.rotation);
+            Vector3 forceDirection = transform.up;
+            float forceMagnitude = 25f + Random.Range(-weapon.spread/2, weapon.spread/2);
+            bullet.AddForce(forceDirection * forceMagnitude, ForceMode.Impulse);
+        
+            int damage = weapon.damage;
+            float rangeLeft = 4 * weapon.range;
+            Vector3 rayOrigin = mainCamera.transform.position;
+            Vector3 rayDirection = mainCamera.transform.forward;
+            Quaternion spreadRotation = Quaternion.Euler(Random.Range(-weapon.spread/2, weapon.spread/2),
+                Random.Range(-weapon.spread/2, weapon.spread/2), 0f);
+            rayDirection = spreadRotation * rayDirection;
+
+            while (damage > 0)
             {
-                rangeLeft -= hit.distance;
-                damage -= Mathf.FloorToInt(weapon.damage * hit.distance/(4*weapon.range)); //DMG * porcentagem de energia que a bala ainda tem
-                
-                GameObject hitObject = hit.collider.gameObject;
-                // if (terreno) return {}{}
-                Vector3 hitDirection = (hit.point - transform.position).normalized;
-                float dot = Vector3.Dot(rayDirection, hit.normal);
-                hitObject.GetComponent<Health>().TakeDamage(damage, dot);
-                
-                //prepare to chain raycasts
-                rayOrigin = hit.point - hit.normal; // slightly offset to prevent self-collision
-                damage -= weapon.decay;
+                if (Physics.Raycast(rayOrigin, rayDirection, out RaycastHit hit, rangeLeft))
+                {
+                    rangeLeft -= hit.distance;
+                    damage -= Mathf.FloorToInt(weapon.damage * hit.distance /
+                                               (4 * weapon.range)); //DMG * porcentagem de energia que a bala ainda tem
+
+                    GameObject hitObject = hit.collider.gameObject;
+                    // if (terreno) return {}{}
+                    float dot = Vector3.Dot(rayDirection, hit.normal);
+                    hitObject.GetComponent<Health>().TakeDamage(damage, dot);
+
+                    //prepare to chain raycasts
+                    rayOrigin = hit.point - hit.normal; // slightly offset to prevent self-collision
+                    damage -= weapon.decay;
+                }
+                else damage = 0; //se nao acertou nada, para o while
             }
-            else damage = 0; //se nao acertou nada, para o while
         }
 
     }
@@ -180,6 +181,11 @@ public class WeaponScript : MonoBehaviour
     public void UpdateWeapon(WeaponInfoStruct currentWeapon) //update the selected weapon
     {
         weapon = currentWeapon;
+    }
+
+    public WeaponInfoStruct GetWeapon()
+    {
+        return weapon;
     }
     
     

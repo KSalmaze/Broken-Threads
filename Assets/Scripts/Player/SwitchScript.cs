@@ -69,6 +69,7 @@ public class SwitchScript : MonoBehaviour
         }
         if (currentWeapon != selectedWeapon)
         {
+            weapon = weaponScript.GetWeapon();
             switchingC = StartCoroutine(SwitchWeapon());
         }
     }
@@ -128,6 +129,7 @@ public class SwitchScript : MonoBehaviour
         
         weapon = inventoryDict[selectedWeapon]; //carrega os valores da arma no ambiente de trabalho
         currentWeapon = selectedWeapon; //atualiza o indice da arma atual
+        weaponScript.UpdateWeapon(weapon);
         
         weaponInfoText.text = weapon.caliber + " - " + weapon.weaponName;
         ammoText.text = weapon.ammo.ToString("D2") + "/";
@@ -135,10 +137,7 @@ public class SwitchScript : MonoBehaviour
         magSizeText.text = weapon.magSize.ToString();
         timerGO.SetActive(false);
         
-        weaponScript.UpdateWeapon(weapon);
         isSwitching = false;
         weaponScript.isSwitching = false;
-
     }
-
 }
