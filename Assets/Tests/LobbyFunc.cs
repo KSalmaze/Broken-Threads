@@ -11,8 +11,9 @@ public class LobbyFunc : MonoBehaviour
     
     void Start()
     {
-        MessageInterpreter.Instance.AddFunction("IGN",InitalClientConnection);
+        MessageInterpreter.Instance.AddFunction("NEW",InitalClientConnection);
         MessageInterpreter.Instance.AddFunction("LOBBY", GoToLobby);
+        MessageInterpreter.Instance.AddFunction("IGN", Ignore);
     }
 
     private void GoToLobby(byte[] bytes, string user)
@@ -24,7 +25,12 @@ public class LobbyFunc : MonoBehaviour
     {
         if (ConnectionSingleton.Instance.Connection is Client client)
         {
-            client.UDP_Send_Message(new Message("A",new byte[]{0}));
+            client.Connect_to_UDP(bytes);
         }
+    }
+
+    private void Ignore(byte[] bytes, string user)
+    {
+        Debug.Log("TAG Ignorada");
     }
 }

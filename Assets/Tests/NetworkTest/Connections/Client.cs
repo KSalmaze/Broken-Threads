@@ -25,16 +25,31 @@ namespace Tests.NetworkTest.Connections
             
             client = new TcpClient();
             Debug.Log("Tentando se conectar ao server");
-            await client.ConnectAsync(_hostip, port);
+            client.Connect(_hostip, port);
+            while (!client.Connected){}
             stream = client.GetStream();
-
-            Debug.Log("Conectado");
             Task.Run(async () => await Receive_TCP());
+            
+            Debug.Log("TCP Conectado");
         }
 
-        public void Connect_to_UDP()
+        public void Connect_to_UDP(byte[] bytes)
         {
-            Task.Run(async () => await Receive_UDP());
+            try{
+                Debug.Log("Iniciando conexão UDP");
+
+                udp_client = new UdpClient();
+                udp_client.Connect(serializer.Deserialize<IPAddress>(bytes), _port + 1);
+                Task.Run(async () => await UDP_Send_Message(new Message("IGN", new byte[] { })));
+
+                Task.Run(async () => await Receive_UDP());
+            }
+            catch(Exception ex)
+            {
+                Debug.LogError($"Erro durante o processo de conexão: {ex.Message}");
+            }
+            
+            TestConnection();
         }
         
         public override async Task TCP_Send_Message(Message message)
@@ -45,8 +60,18 @@ namespace Tests.NetworkTest.Connections
 
         public override async Task UDP_Send_Message(Message message)
         {
-            byte[] messageBytes = serializer.Serialize(message);
-            udp_client.SendAsync(messageBytes, messageBytes.Length);
+            try{
+                Debug.Log("Enviando mensagem UDP");
+                byte[] messageBytes = serializer.Serialize(message);
+                Debug.Log(udp_client.Available);
+                Debug.Log(udp_client);
+                udp_client.Send(messageBytes, messageBytes.Length);
+                Debug.Log("Mensagem UDP enviada");
+            }
+            catch(Exception ex)
+            {
+                Debug.LogError($"Erro durante o envio de mensagem UDP: {ex.Message}");
+            }
         }
         
         private async Task Receive_UDP()
@@ -54,7 +79,8 @@ namespace Tests.NetworkTest.Connections
             while (true)
             {
                 UdpReceiveResult udpReceiveResult = await udp_client.ReceiveAsync();
-                messageInterpreter.Interpret(serializer.Deserialize<Message>(udpReceiveResult.Buffer)); 
+                Debug.Log("Menssagem UDP recebida");
+                messageInterpreter.Interpret(serializer.Deserialize<Message>(udpReceiveResult.Buffer));
             }
         }
         
@@ -62,14 +88,18 @@ namespace Tests.NetworkTest.Connections
         {
             while (true)
             {
-                if (client.Connected)
+                if (client.Connected && stream.CanRead)
                 {
-                    Debug.Log("Recebendo mensagem");
+                    Debug.Log("Nenhuma mensagem");
+                    
                     byte[] bytesFrom = new byte[10500];
                     stream.Read(bytesFrom, 0, bytesFrom.Length);
+                    
+                    Debug.Log("MSG " + serializer.Deserialize<Message>(bytesFrom).User);
 
                     if (bytesFrom.Length != 0)
                     {
+                        Debug.Log("Mensagem TCP recebida");
                         messageInterpreter.Interpret(serializer.Deserialize<Message>(bytesFrom));   
                     }
                     stream.Flush();
@@ -77,9 +107,16 @@ namespace Tests.NetworkTest.Connections
             }
         }
 
+        private void TestConnection()
+        {
+            Task.Run(async () => await UDP_Send_Message(new Message("IGN",new byte[]{0})));
+            Task.Run(async () => await TCP_Send_Message(new Message("IGN",new byte[]{0})));
+        }
+        
         public override void Quit()
         {
-            throw new NotImplementedException();
+            udp_client.Close();
+            client.Close();
         }
     }
 }

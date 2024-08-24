@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MessageInterpreter: MonoBehaviour
+public class MessageInterpreter
 {
     // Singleton
     private static MessageInterpreter instance;
@@ -35,6 +35,7 @@ public class MessageInterpreter: MonoBehaviour
     
     public void Interpret(Message message)
     {
+        Debug.Log("Interpretando mensagem com tag " + message.Tag);
         interpreter_functions[message.Tag](message.Content, message.User);
     }
 }

@@ -42,7 +42,6 @@ namespace Tests.NetworkTest.Connections
         {
             while (_acceptNewClients)
             {
-                Debug.Log(_tcpserver.Pending());
                 if (_serverLivre && _tcpserver.Pending())
                 {
                     Debug.Log("Aceitando client");
@@ -54,26 +53,41 @@ namespace Tests.NetworkTest.Connections
 
         private async Task NewClient()
         {
-            Debug.Log("Iniciando conexão com client");
-            
-            TcpClient client = await _tcpserver.AcceptTcpClientAsync();
-            NetworkStream clientStream = client.GetStream();
-            
-            byte[] bytesToSend = serializer.Serialize(new Message("IGN", new byte[]{0}));
-            clientStream.Write(bytesToSend, 0, bytesToSend.Length);
-            
-            UdpReceiveResult receivedResult = await _udpServer.ReceiveAsync();
-            IPEndPoint remoteEndPoint = receivedResult.RemoteEndPoint;
-            Console.WriteLine("Connection accepted");
-            string playerName = serializer.Deserialize<Message>(receivedResult.Buffer).User;
-            _playerList.Add(new Player(playerName, tcpClient: client, tcpstream: clientStream, udpendpoint: remoteEndPoint));
-            _serverLivre = true;
-            
-            _playerList.Update_Player_Connections();
-            Debug.Log("Conexão estabelecida com sucesso");
+            try {
+                Debug.Log("Iniciando conexão com client");
 
-            _ = Task.Run(async () => await Receive_TCP());
-            _ = Task.Run(async () => await Receive_UDP());
+                TcpClient client = _tcpserver.AcceptTcpClient();
+                Debug.Log("Client get");
+                NetworkStream clientStream = client.GetStream();
+                Debug.Log("TCP Connection accepted");
+                
+                byte[] bytesToSend = serializer.Serialize(new Message("NEW", serializer.Serialize(ConnectionSingleton.Instance.Player_IP)));
+                // await Task.Delay(2000);
+                Debug.Log(clientStream.CanWrite);
+                while (!clientStream.CanWrite) {}
+                clientStream.Write(bytesToSend, 0, bytesToSend.Length);
+                Debug.Log("TCP Message sended");
+
+                UdpReceiveResult receivedResult = await _udpServer.ReceiveAsync();
+                IPEndPoint remoteEndPoint = receivedResult.RemoteEndPoint;
+                Debug.Log("UDP Connection accepted");
+                string playerName = serializer.Deserialize<Message>(receivedResult.Buffer).User;
+                _playerList.Add(new Player(playerName, tcpClient: client, tcpstream: clientStream,
+                    udpendpoint: remoteEndPoint));
+                _serverLivre = true;
+
+                _playerList.Update_Player_Connections();
+                Debug.Log("Conexão estabelecida com sucesso");
+
+                _ = Task.Run(async () => await Receive_TCP());
+                _ = Task.Run(async () => await Receive_UDP());
+
+                TestConnection();
+            }
+            catch(Exception ex)
+            {
+                Debug.LogError($"Erro durante o processo de conexão: {ex.Message}");
+            }
         }
         
         public override async Task TCP_Send_Message(Message message)
@@ -93,11 +107,18 @@ namespace Tests.NetworkTest.Connections
 
         public override async Task UDP_Send_Message(Message message)
         {
-            byte[] bytesToSend = serializer.Serialize(message);
-            
-            foreach (IPEndPoint ipEndPoint in _playerList.AllPlayerEndPoint)
+            try
             {
-                await _udpServer.SendAsync(bytesToSend, bytesToSend.Length, ipEndPoint);
+                byte[] bytesToSend = serializer.Serialize(message);
+            
+                foreach (IPEndPoint ipEndPoint in _playerList.AllPlayerEndPoint)
+                {
+                    await _udpServer.SendAsync(bytesToSend, bytesToSend.Length, ipEndPoint);
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.LogError($"Erro durante o envio de mensagem UDP: {ex.Message}");
             }
         }
         
@@ -111,8 +132,8 @@ namespace Tests.NetworkTest.Connections
             while (true)
             {
                 UdpReceiveResult receivedResult = await _udpServer.ReceiveAsync();
-                MessageInterpreter.Instance.Interpret(serializer.Deserialize<Message>(receivedResult.Buffer));
                 Debug.Log("Mensagem UDP recebida");
+                MessageInterpreter.Instance.Interpret(serializer.Deserialize<Message>(receivedResult.Buffer));
             }
         }
         
@@ -140,6 +161,12 @@ namespace Tests.NetworkTest.Connections
             }
         }
 
+        private void TestConnection()
+        {
+            Task.Run(async () => await UDP_Send_Message(new Message("IGN",new byte[]{0})));
+            Task.Run(async () => await TCP_Send_Message(new Message("IGN",new byte[]{0})));
+        }
+        
         public override void Quit()
         {
             _tcpserver.Stop();
