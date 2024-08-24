@@ -70,7 +70,7 @@ public class WeaponScript : MonoBehaviour
         timerGO.SetActive(false);
         inventoryDict = inventory.InventoryDictReference; //referencia o dicionario do Inventario
         
-        weapon = transform.GetChild(1).GetComponent<IWeaponDataProvider>().GetWeaponData();
+        weapon = transform.GetChild(0).GetChild(1).GetComponent<IWeaponDataProvider>().GetWeaponData();
         // Transform child = transform.GetChild(0);
         // IWeaponDataProvider iWeaponDataProvider = child.GetComponent<IWeaponDataProvider>();
         // weapon = iWeaponDataProvider.GetWeaponData();
@@ -109,7 +109,7 @@ public class WeaponScript : MonoBehaviour
         for (int i = 0; i < bulletCount; i++)
         {
             Rigidbody bullet = Instantiate(bulletRB, transform.position, transform.rotation);
-            Vector3 forceDirection = transform.up;
+            Vector3 forceDirection = mainCamera.transform.forward;
             float forceMagnitude = 25f + Random.Range(-spread/2, spread/2);
             bullet.AddForce(forceDirection * forceMagnitude, ForceMode.Impulse);
             
