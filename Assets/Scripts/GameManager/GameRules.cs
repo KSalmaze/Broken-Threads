@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class GameRules : MonoBehaviour
@@ -14,6 +15,7 @@ public class GameRules : MonoBehaviour
     [SerializeField] private GameObject endCanvas;
     [SerializeField] private GameObject winCanvas;
     [SerializeField] private GameObject loseCanvas;
+    [SerializeField] private GameObject drawCanvas;
     
     private int pontuacao, pontuacaoOponente;
     private float tempo = 0;
@@ -59,6 +61,7 @@ public class GameRules : MonoBehaviour
     
     void FimDePartida(bool resultado)
     {
+        StartCoroutine(End());
         endCanvas.SetActive(true);
         
         if (resultado)
@@ -69,5 +72,12 @@ public class GameRules : MonoBehaviour
         {
             loseCanvas.SetActive(true);
         }
+    }
+
+    IEnumerator End()
+    {
+        yield return new WaitForSeconds(6);
+        ConnectionSingleton.Instance.Connection.Quit();
+        SceneManager.LoadScene(0);
     }
 }
