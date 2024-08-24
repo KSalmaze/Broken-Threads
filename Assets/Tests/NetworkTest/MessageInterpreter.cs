@@ -30,7 +30,7 @@ public class MessageInterpreter
 
     public void AddFunction(string messageTag, Func funtion)
     {
-        interpreter_functions.Add(messageTag,funtion);
+        interpreter_functions.TryAdd(messageTag, funtion);
     }
     
     public void Interpret(Message message)

@@ -1537,7 +1537,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c1e5b64b736a8e48a48e007dc88330e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  otherPlayer: {fileID: 0}
+  fClient: {fileID: 2010800289}
+  fHost: {fileID: 2106657411}
+  lobbyScene:
+  - {fileID: 576844362}
+  startMatchButton: {fileID: 2045468284}
 --- !u!114 &432382171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1550,8 +1554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc55ef6026144b4c828b115e5b05b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: {fileID: 0}
-  playerName2: {fileID: 0}
+  playerName: {fileID: 572669447}
 --- !u!114 &432382172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2167,6 +2170,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 558958009}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 432382171}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: HostButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1837598260}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_InputField, Unity.TextMeshPro
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4610,7 +4625,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 432382171}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: SetActive
@@ -4618,6 +4633,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1360839123}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 432382171}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: ClientButton
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2096250309}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_InputField, Unity.TextMeshPro
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6016,7 +6043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2045468285
 RectTransform:
   m_ObjectHideFlags: 0

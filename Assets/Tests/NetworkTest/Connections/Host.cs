@@ -165,6 +165,7 @@ namespace Tests.NetworkTest.Connections
         {
             Task.Run(async () => await UDP_Send_Message(new Message("IGN",new byte[]{0})));
             Task.Run(async () => await TCP_Send_Message(new Message("IGN",new byte[]{0})));
+            Task.Run(async () => await TCP_Send_Message(new Message("LOBBY",new byte[]{0})));
         }
         
         public override void Quit()

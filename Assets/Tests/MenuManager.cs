@@ -10,7 +10,6 @@ using TMPro;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private TMP_InputField playerName;
-    [SerializeField] private TMP_InputField playerName2;
     
     public void SwitchActiveObject(GameObject gameo)
     {
@@ -74,10 +73,6 @@ public class MenuManager : MonoBehaviour
         if (!string.IsNullOrEmpty(playerName.text))
         {
             return playerName.text;
-        }
-        if (!string.IsNullOrEmpty(playerName2.text))
-        {
-            return playerName2.text;
         }
         
         return String.Empty;
