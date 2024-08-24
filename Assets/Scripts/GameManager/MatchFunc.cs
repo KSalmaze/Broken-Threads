@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using Tests.NetworkTest.Serializers;
 using UnityEngine;
 
 public class MatchFunc : MonoBehaviour
 {
     [SerializeField] private Transform oponente;
-    
+
+    private MatchStarter _matchStarter;
+    private GameRules _gameRules;
     private MessageInterpreter.Func funcao;
     private byte[] _bytes;
     private string _user;
@@ -17,6 +20,8 @@ public class MatchFunc : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _gameRules = gameObject.GetComponent<GameRules>();
+        _matchStarter = gameObject.GetComponent<MatchStarter>();
         _serializer = new BinarySerializer();
         MessageInterpreter.Instance.AddFunction("POS", OP);
         MessageInterpreter.Instance.AddFunction("HIT", H);
@@ -59,7 +64,9 @@ public class MatchFunc : MonoBehaviour
     
     void OponentePosition(byte[] bytes, string user)
     {
-        oponente = _serializer.Deserialize<Transform>(bytes);
+        Debug.Log("Menssagem com tag POS sendo interpretada");
+        TransformData transData = _serializer.Deserialize<TransformData>(bytes);
+        oponente.position = new Vector3(transData.position[0],transData.position[1],transData.position[2]);
     }
 
     void Hit(byte[] bytes, string user)
@@ -69,6 +76,7 @@ public class MatchFunc : MonoBehaviour
 
     void Die(byte[] bytes, string user)
     {
-        
+        _gameRules.pontuacaoOponente++;
+        _matchStarter.SetPosition();
     }
 }
