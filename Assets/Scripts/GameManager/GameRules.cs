@@ -14,6 +14,10 @@ public class GameRules : MonoBehaviour
     [SerializeField] private GameObject endCanvas;
     [SerializeField] private GameObject winCanvas;
     [SerializeField] private GameObject loseCanvas;
+
+    [Header("Triggers")] 
+    [SerializeField] private float tempo1;
+    [SerializeField] private float tempo2;
     
     private int pontuacao, pontuacaoOponente;
     private float tempo = 0;
@@ -50,8 +54,31 @@ public class GameRules : MonoBehaviour
                 }
             }
         }
+
+        if (tempo <= tempo1)
+        {
+            Debug.Log("Trigger 1");
+            TriggerA();
+            tempo1 = 0;
+        }
+        if(tempo <= tempo2)
+        {
+            Debug.Log("Trigger 2");
+            TriggerB();
+            tempo2 = 0;
+        }
     }
 
+    void TriggerA()
+    {
+        
+    }
+
+    void TriggerB()
+    {
+        
+    }
+    
     void Empate()
     {
         // Entrar no Modo de 

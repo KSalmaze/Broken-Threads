@@ -1,9 +1,13 @@
+using System;
+using System.ComponentModel;
+using Tests.NetworkTest.Serializers;
 using UnityEngine;
 using TMPro;
 using Random = UnityEngine.Random;
 
 public class Health : MonoBehaviour
 {
+     private Serializer _serializer;
      // private float maxHealth = 100f;
      public int health = 100;
      public GameObject worldSpaceUI;
@@ -35,7 +39,16 @@ public class Health : MonoBehaviour
           textRB.AddForce(impulse, ForceMode2D.Impulse);
           
           health -= damage;
-          if (health <= 0) Destroy(gameObject);
+          if (health <= 0)
+          {
+               Morreu();
+          }
           Debug.Log(health);
+     }
+
+     public void Morreu()
+     {
+          ConnectionSingleton.Instance.Connection.UDP_Send_Message(
+               new Message("DIE", new byte[]{0}));
      }
 }
