@@ -13121,8 +13121,10 @@ MonoBehaviour:
   winCanvas: {fileID: 999197206}
   loseCanvas: {fileID: 685716114}
   drawCanvas: {fileID: 24928350}
-  tempo1: 0
-  tempo2: 0
+  tempo1: -1
+  tempo2: -1
+  pontuacao: 0
+  pontuacaoOponente: 0
 --- !u!4 &1501971880
 Transform:
   m_ObjectHideFlags: 0

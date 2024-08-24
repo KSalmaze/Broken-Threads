@@ -35,10 +35,13 @@ public class GameRules : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        textoPontuacao.text = pontuacao.ToString();
+        textoPontuacaoOponente.text = pontuacaoOponente.ToString();
+        
         tempo -= Time.deltaTime;
         timer.text = tempo.ToString();
         
-        if (tempo <= duracaoDaPartida)
+        if (tempo <= 0)
         {
             if (pontuacao == pontuacaoOponente)
             {
@@ -106,6 +109,7 @@ public class GameRules : MonoBehaviour
     {
         yield return new WaitForSeconds(6);
         ConnectionSingleton.Instance.Connection.Quit();
+        Application.Quit();
         SceneManager.LoadScene(0);
     }
 }
