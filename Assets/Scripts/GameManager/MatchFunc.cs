@@ -20,6 +20,7 @@ public class MatchFunc : MonoBehaviour
         _serializer = new BinarySerializer();
         MessageInterpreter.Instance.AddFunction("POS", OP);
         MessageInterpreter.Instance.AddFunction("HIT", H);
+        MessageInterpreter.Instance.AddFunction("DIE",D);
     }
 
     // Update is called once per frame
@@ -39,9 +40,18 @@ public class MatchFunc : MonoBehaviour
         _user = user;
         run = true;
     }
+    
     void H(byte[] bytes, string user)
     {
         funcao = Hit;
+        _bytes = bytes;
+        _user = user;
+        run = true;
+    }
+
+    void D(byte[] bytes, string user)
+    {
+        funcao = Die;
         _bytes = bytes;
         _user = user;
         run = true;
@@ -53,6 +63,11 @@ public class MatchFunc : MonoBehaviour
     }
 
     void Hit(byte[] bytes, string user)
+    {
+        
+    }
+
+    void Die(byte[] bytes, string user)
     {
         
     }

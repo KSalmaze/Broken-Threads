@@ -11,6 +11,10 @@ public class GameRules : MonoBehaviour
     [SerializeField] private TMP_Text textoPontuacao;
     [SerializeField] private TMP_Text textoPontuacaoOponente;
 
+    [SerializeField] private GameObject endCanvas;
+    [SerializeField] private GameObject winCanvas;
+    [SerializeField] private GameObject loseCanvas;
+    
     private int pontuacao, pontuacaoOponente;
     private float tempo = 0;
     private MusicPlayer musicPlayer;
@@ -50,18 +54,20 @@ public class GameRules : MonoBehaviour
 
     void Empate()
     {
-        
+        // Entrar no Modo de 
     }
     
     void FimDePartida(bool resultado)
     {
+        endCanvas.SetActive(true);
+        
         if (resultado)
         {
-            // vitória
+            winCanvas.SetActive(true);
         }
         else
         {
-            // derrota
+            loseCanvas.SetActive(true);
         }
     }
 }

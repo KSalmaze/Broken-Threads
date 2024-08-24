@@ -295,3 +295,145 @@ UnityEngine.Debug:Log (object)
 LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:65)
 LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:23)
 
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:31)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:35)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:38)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:32)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:36)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:39)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: GotoLobby
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:61)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do client escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:63)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do host escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:65)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Finaizado
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:80)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Error: Scene with build index: 2 couldn't be loaded because it has not been added to the build settings.
+To add a scene to the build settings use the menu File->Build Settings...
+UnityEngine.SceneManagement.SceneManager:LoadScene (int)
+MenuManager:StartButton () (at Assets/Tests/MenuManager.cs:85)
+UnityEngine.EventSystems.EventSystem:Update ()
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:32)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:36)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:39)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: GotoLobby
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:61)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do client escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:63)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do host escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:65)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Finaizado
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:80)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:32)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:36)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:39)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: GotoLobby
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:61)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do client escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:63)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do host escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:65)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Finaizado
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:80)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+

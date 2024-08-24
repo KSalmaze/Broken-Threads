@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using Tests.NetworkTest.Connections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class LobbyFunc : MonoBehaviour
 {
     [SerializeField] private TMP_Text fClient, fHost;
     [SerializeField] private List<GameObject> lobbyScene;
     [SerializeField] private GameObject startMatchButton;
+    // [SerializeField] private string GameScene;
     private MessageInterpreter.Func funcao;
     private byte[] _bytes;
     private string _user;
@@ -30,12 +32,20 @@ public class LobbyFunc : MonoBehaviour
         MessageInterpreter.Instance.AddFunction("NEW",InitalClientConnection);
         MessageInterpreter.Instance.AddFunction("LOBBY", Lobby);
         MessageInterpreter.Instance.AddFunction("IGN", Ignore);
-        MessageInterpreter.Instance.AddFunction("START", StartMatch);
+        MessageInterpreter.Instance.AddFunction("START", Start);
     }
 
+    private void Start(byte[] bytes, string user)
+    {
+        funcao = StartMatch;
+        _bytes = bytes;
+        _user = user;
+        run = true;
+    }
+    
     private void StartMatch(byte[] bytes, string user)
     {
-        
+        SceneManager.LoadScene("Map");
     }
     
     private void Lobby(byte[] bytes, string user)

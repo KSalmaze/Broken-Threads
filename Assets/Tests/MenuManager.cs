@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Tests.NetworkTest.Connections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -76,5 +77,11 @@ public class MenuManager : MonoBehaviour
         }
         
         return String.Empty;
+    }
+
+    public void StartButton()
+    {
+        ConnectionSingleton.Instance.Connection.TCP_Send_Message(new Message("START", new Byte[]{0}));
+        SceneManager.LoadScene("Map");
     }
 }
