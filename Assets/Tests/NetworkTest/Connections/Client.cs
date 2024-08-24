@@ -63,14 +63,14 @@ namespace Tests.NetworkTest.Connections
             try{
                 Debug.Log("Enviando mensagem UDP");
                 byte[] messageBytes = serializer.Serialize(message);
-                Debug.Log(udp_client.Available);
-                Debug.Log(udp_client);
+                // Debug.Log(udp_client.Available);
+                // Debug.Log(udp_client);
                 udp_client.Send(messageBytes, messageBytes.Length);
                 Debug.Log("Mensagem UDP enviada");
             }
             catch(Exception ex)
             {
-                Debug.LogError($"Erro durante o envio de mensagem UDP: {ex.Message}");
+                // Debug.LogError($"Erro durante o envio de mensagem UDP: {ex.Message}");
             }
         }
         

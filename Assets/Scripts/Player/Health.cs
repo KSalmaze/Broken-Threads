@@ -1,3 +1,6 @@
+using System;
+using System.ComponentModel;
+using Tests.NetworkTest.Serializers;
 using UnityEngine;
 using TMPro;
 using Random = UnityEngine.Random;
@@ -10,7 +13,13 @@ public class Health : MonoBehaviour
      private readonly Color orange = new(1.0f, 0.25f, 0.0f);
      bool isCrit; //implementar os dois na funcao TakeDamage
      bool isHeadshot;
-     
+     private GameRules gameRule;
+
+     void Start()
+     {
+          gameRule = GameObject.Find("GameManager").GetComponent<GameRules>();
+     }
+
      public void TakeDamage(int damage, bool dot, Vector3 position)
      {
           GameObject textInstance = Instantiate(worldSpaceUI, position, Quaternion.identity);
@@ -35,7 +44,17 @@ public class Health : MonoBehaviour
           textRB.AddForce(impulse, ForceMode2D.Impulse);
           
           health -= damage;
-          if (health <= 0) Destroy(gameObject);
+          if (health <= 0)
+          {
+               Morreu();
+          }
           Debug.Log(health);
+     }
+
+     public void Morreu()
+     {
+          ConnectionSingleton.Instance.Connection.UDP_Send_Message(
+               new Message("DIE", new byte[]{0}));
+          gameRule.pontuacao++;
      }
 }
