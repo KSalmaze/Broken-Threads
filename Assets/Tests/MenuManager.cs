@@ -12,9 +12,19 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TMP_InputField playerName;
     [SerializeField] private TMP_InputField playerName2;
     
-    public void SwitchActiveObject(GameObject actual)
+    public void SwitchActiveObject(GameObject gameo)
     {
-        actual.SetActive(!actual.activeSelf);
+        gameo.SetActive(!gameo.activeSelf);
+    }
+
+    public void SetActive(GameObject gameo)
+    {
+        gameo.SetActive(true);
+    }
+    
+    public void SetFalse(GameObject gameo)
+    {
+        gameo.SetActive(false);
     }
 
     public void HostIP(TMP_InputField inputField)
