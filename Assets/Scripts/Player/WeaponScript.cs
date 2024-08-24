@@ -97,7 +97,7 @@ public class WeaponScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0)) shootingC = StartCoroutine(ShootingAuto());
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (isShootingAuto) StopCoroutine(shootingC);
+            if (isShootingAuto) { StopCoroutine(shootingC); isShootingAuto = false; }
             shootingC = StartCoroutine(ShootingShotgun());
         }
     }
@@ -178,17 +178,6 @@ public class WeaponScript : MonoBehaviour
         ammoText.text = weapon.ammo.ToString("D2") + "/";
         isReloading = false;
         hasAmmo = true;
-    }
-    
-    
-    public void UpdateWeapon(WeaponInfoStruct currentWeapon) //update the selected weapon
-    {
-        weapon = currentWeapon;
-    }
-
-    public WeaponInfoStruct GetWeapon()
-    {
-        return weapon;
     }
     
     
