@@ -24,7 +24,7 @@ public class MusicPlayer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void MudarMusica(string nomeMusica, bool loop = false)
+    public void MudarMusica(string nomeMusica, bool loop = false)
     {
         globalAudioSorcer.loop = loop;
         
@@ -37,5 +37,20 @@ public class MusicPlayer : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void StartMatch()
+    {
+        MudarMusica("Prosti", false);
+        StartCoroutine(MusicaAcabou());
+    }
+
+    IEnumerator MusicaAcabou()
+    {
+        while (globalAudioSorcer.isPlaying)
+        {
+            yield break;
+        }
+        MudarMusica("Devil");
     }
 }
