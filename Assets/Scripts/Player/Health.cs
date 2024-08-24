@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
           
           TextMeshProUGUI textMesh = textInstance.GetComponentInChildren<TextMeshProUGUI>();
           textMesh.text = damage.ToString();
-          
+
           isCrit = true;
           isHeadshot = true;
           switch ((isCrit ? 1 : 0) + (isHeadshot ? 2 : 0))
