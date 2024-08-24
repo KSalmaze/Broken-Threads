@@ -27,7 +27,7 @@ public class MenuManager : MonoBehaviour
         gameo.SetActive(false);
     }
 
-    public void HostIP(TMP_InputField inputField)
+    public void HostButton(TMP_InputField inputField)
     {
         Debug.Log("Tentando abrir conexão ->" + inputField.text + "<-");
         if (IsValidIPAddress(inputField.text) && PlayerName() != String.Empty)
@@ -41,7 +41,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void ClientIP(TMP_InputField inputField)
+    public void ClientButton(TMP_InputField inputField)
     {
         Debug.Log("Tantando abrir conexão");
         if (IsValidIPAddress(inputField.text) && PlayerName() != String.Empty)
