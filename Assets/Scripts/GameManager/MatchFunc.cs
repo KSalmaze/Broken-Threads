@@ -9,6 +9,7 @@ public class MatchFunc : MonoBehaviour
     [SerializeField] private Transform oponente;
 
     private MatchStarter _matchStarter;
+    private GameRules _gameRules;
     private MessageInterpreter.Func funcao;
     private byte[] _bytes;
     private string _user;
@@ -19,6 +20,7 @@ public class MatchFunc : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _gameRules = gameObject.GetComponent<GameRules>();
         _matchStarter = gameObject.GetComponent<MatchStarter>();
         _serializer = new BinarySerializer();
         MessageInterpreter.Instance.AddFunction("POS", OP);
@@ -74,6 +76,7 @@ public class MatchFunc : MonoBehaviour
 
     void Die(byte[] bytes, string user)
     {
+        _gameRules.pontuacaoOponente++;
         _matchStarter.SetPosition();
     }
 }

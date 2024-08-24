@@ -7,14 +7,19 @@ using Random = UnityEngine.Random;
 
 public class Health : MonoBehaviour
 {
-     private Serializer _serializer;
      // private float maxHealth = 100f;
      public int health = 100;
      public GameObject worldSpaceUI;
      private readonly Color orange = new(1.0f, 0.25f, 0.0f);
      bool isCrit; //implementar os dois na funcao TakeDamage
      bool isHeadshot;
-     
+     private GameRules gameRule;
+
+     void Start()
+     {
+          gameRule = GameObject.Find("GameManager").GetComponent<GameRules>();
+     }
+
      public void TakeDamage(int damage, bool dot, Vector3 position)
      {
           GameObject textInstance = Instantiate(worldSpaceUI, position, Quaternion.identity);
@@ -50,5 +55,6 @@ public class Health : MonoBehaviour
      {
           ConnectionSingleton.Instance.Connection.UDP_Send_Message(
                new Message("DIE", new byte[]{0}));
+          gameRule.pontuacao++;
      }
 }
