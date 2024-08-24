@@ -88,21 +88,27 @@ namespace Tests.NetworkTest.Connections
         {
             while (true)
             {
-                if (client.Connected && stream.CanRead)
-                {
-                    Debug.Log("Nenhuma mensagem");
-                    
-                    byte[] bytesFrom = new byte[10500];
-                    stream.Read(bytesFrom, 0, bytesFrom.Length);
-                    
-                    Debug.Log("MSG " + serializer.Deserialize<Message>(bytesFrom).User);
-
-                    if (bytesFrom.Length != 0)
+                try{
+                    if (client.Connected && stream.CanRead)
                     {
-                        Debug.Log("Mensagem TCP recebida");
-                        messageInterpreter.Interpret(serializer.Deserialize<Message>(bytesFrom));   
+                       // Debug.Log("Nenhuma mensagem");
+
+                        byte[] bytesFrom = new byte[10500];
+                        stream.Read(bytesFrom, 0, bytesFrom.Length);
+
+                       // Debug.Log("MSG from " + serializer.Deserialize<Message>(bytesFrom).User);
+
+                        if (bytesFrom.Length != 0)
+                        {
+                           // Debug.Log("Mensagem TCP recebida");
+                            messageInterpreter.Interpret(serializer.Deserialize<Message>(bytesFrom));
+                        }
+
+                        stream.Flush();
                     }
-                    stream.Flush();
+                }catch(Exception ex)
+                {
+                    // Debug.LogError($"Erro durante o recebimento de uma mensagem TCP: {ex.Message}");
                 }
             }
         }

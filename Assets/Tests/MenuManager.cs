@@ -10,14 +10,23 @@ using TMPro;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] private TMP_InputField playerName;
-    [SerializeField] private TMP_InputField playerName2;
     
-    public void SwitchActiveObject(GameObject actual)
+    public void SwitchActiveObject(GameObject gameo)
     {
-        actual.SetActive(!actual.activeSelf);
+        gameo.SetActive(!gameo.activeSelf);
     }
 
-    public void HostIP(TMP_InputField inputField)
+    public void SetActive(GameObject gameo)
+    {
+        gameo.SetActive(true);
+    }
+    
+    public void SetFalse(GameObject gameo)
+    {
+        gameo.SetActive(false);
+    }
+
+    public void HostButton(TMP_InputField inputField)
     {
         Debug.Log("Tentando abrir conexão ->" + inputField.text + "<-");
         if (IsValidIPAddress(inputField.text) && PlayerName() != String.Empty)
@@ -31,7 +40,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void ClientIP(TMP_InputField inputField)
+    public void ClientButton(TMP_InputField inputField)
     {
         Debug.Log("Tantando abrir conexão");
         if (IsValidIPAddress(inputField.text) && PlayerName() != String.Empty)
@@ -64,10 +73,6 @@ public class MenuManager : MonoBehaviour
         if (!string.IsNullOrEmpty(playerName.text))
         {
             return playerName.text;
-        }
-        if (!string.IsNullOrEmpty(playerName2.text))
-        {
-            return playerName2.text;
         }
         
         return String.Empty;
