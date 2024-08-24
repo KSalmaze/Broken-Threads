@@ -1,0 +1,439 @@
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:31)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:35)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:38)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:31)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:35)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:38)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tantando abrir conexão
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:45)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:49)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Warning: Assets\Tests\NetworkTest\SyncBehavior.cs(8,32): warning CS0108: 'SyncBehavior.transform' hides inherited member 'Component.transform'. Use the new keyword if hiding was intended.
+
+Warning: Assets\Tests\NetworkTest\ConnectionSingleton.cs(38,16): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(23,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(31,13): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(20,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(41,28): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(58,13): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(55,36): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(99,17): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(93,36): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(103,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(125,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(61,36): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(87,28): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+MenuManager.OnApplicationQuit () (at Assets/Tests/MenuManager.cs:68)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:31)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:35)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:38)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tantando abrir conexão
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:45)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:49)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tantando abrir conexão
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:45)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:49)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Warning: Assets\Tests\NetworkTest\SyncBehavior.cs(8,32): warning CS0108: 'SyncBehavior.transform' hides inherited member 'Component.transform'. Use the new keyword if hiding was intended.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(23,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\ConnectionSingleton.cs(38,16): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(41,28): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(31,13): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(20,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(58,13): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(55,36): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(99,17): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(93,36): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(103,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(125,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(61,36): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(109,34): warning CS0168: The variable 'ex' is declared but never used
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(87,28): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+MenuManager.OnApplicationQuit () (at Assets/Tests/MenuManager.cs:68)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tantando abrir conexão
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:45)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:49)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tantando abrir conexão
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:45)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:49)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Warning: Assets\Tests\NetworkTest\SyncBehavior.cs(8,32): warning CS0108: 'SyncBehavior.transform' hides inherited member 'Component.transform'. Use the new keyword if hiding was intended.
+
+Warning: Assets\Tests\NetworkTest\ConnectionSingleton.cs(38,16): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(31,13): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(20,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(23,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(41,28): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(58,13): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(55,36): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(99,17): warning CS4014: Because this call is not awaited, execution of the current method continues before the call is completed. Consider applying the 'await' operator to the result of the call.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(93,36): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(61,36): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(103,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(109,34): warning CS0168: The variable 'ex' is declared but never used
+
+Warning: Assets\Tests\NetworkTest\Connections\Client.cs(87,28): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Warning: Assets\Tests\NetworkTest\Connections\Host.cs(125,27): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tantando abrir conexão
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:45)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:49)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tantando abrir conexão
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:45)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:49)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tantando abrir conexão
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:45)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:49)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tantando abrir conexão
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:45)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:ClientButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:49)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: GotoLobby
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:46)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:23)
+
+Log: Nome do client escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:48)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:23)
+
+Log: Nome do host escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:50)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:23)
+
+Log: Finaizado
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:65)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:23)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:31)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:35)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:38)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:32)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:36)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:39)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: GotoLobby
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:61)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do client escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:63)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do host escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:65)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Finaizado
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:80)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Error: Scene with build index: 2 couldn't be loaded because it has not been added to the build settings.
+To add a scene to the build settings use the menu File->Build Settings...
+UnityEngine.SceneManagement.SceneManager:LoadScene (int)
+MenuManager:StartButton () (at Assets/Tests/MenuManager.cs:85)
+UnityEngine.EventSystems.EventSystem:Update ()
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:32)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:36)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:39)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: GotoLobby
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:61)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do client escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:63)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do host escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:65)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Finaizado
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:80)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Log: Tentando abrir conexão ->127.0.0.1<-
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:32)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: Ip validado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:36)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: host criado
+UnityEngine.Debug:Log (object)
+MenuManager:HostButton (TMPro.TMP_InputField) (at Assets/Tests/MenuManager.cs:39)
+UnityEngine.EventSystems.EventSystem:Update () (at ./Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs:530)
+
+Log: GotoLobby
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:61)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do client escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:63)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Nome do host escrito
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:65)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
+Log: Finaizado
+UnityEngine.Debug:Log (object)
+LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:80)
+LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
+
