@@ -11,14 +11,14 @@ public class Health : MonoBehaviour
      bool isCrit; //implementar os dois na funcao TakeDamage
      bool isHeadshot;
      
-     public void TakeDamage(int damage, float dot, Vector3 position)
+     public void TakeDamage(int damage, bool dot, Vector3 position)
      {
           GameObject textInstance = Instantiate(worldSpaceUI, position, Quaternion.identity);
           Destroy(textInstance, 0.65f);
           
           TextMeshProUGUI textMesh = textInstance.GetComponentInChildren<TextMeshProUGUI>();
           textMesh.text = damage.ToString();
-
+          
           isCrit = true;
           isHeadshot = true;
           switch ((isCrit ? 1 : 0) + (isHeadshot ? 2 : 0))
@@ -31,7 +31,7 @@ public class Health : MonoBehaviour
           
           Rigidbody2D textRB = textInstance.GetComponentInChildren<Rigidbody2D>();
           Vector2 impulse = new Vector2(Random.Range(2f, 5f), Random.Range(2f, 5f));
-          impulse.x *= dot > 0 ? 1f : -1f; // changed the direction of the impulse depending on the hit angle
+          impulse.x *= dot ? 1f : -1f; // changed the direction of the impulse depending on the hit angle
           textRB.AddForce(impulse, ForceMode2D.Impulse);
           
           health -= damage;

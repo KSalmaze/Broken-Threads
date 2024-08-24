@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     public Transform player;
-    public float mouseSensitivity = 200.0f;
+    public float mouseSensitivity = 100.0f;
     private float cameraYrotation, inputX, inputY;
     // private bool lockCursor = true;
     
@@ -24,6 +24,5 @@ public class CameraScript : MonoBehaviour
         
         transform.localRotation = Quaternion.Euler(cameraYrotation, 0.0f, 0.0f);
         player.Rotate(Vector3.up * inputX);
-
     }
 }

@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using WeaponsNS;
 using Random = UnityEngine.Random;
+using Slider = UnityEngine.UI.Slider;
 
 public class WeaponScript : MonoBehaviour
 {
@@ -126,10 +126,13 @@ public class WeaponScript : MonoBehaviour
                                             //DMG * porcentagem de energia que a bala ainda tem
                 
                 GameObject hitObject = hit.collider.gameObject;
-                // if (terreno) return {}{}
-                float dot = Vector3.Dot(rayDirection, hit.normal);
-                // comparar se o hit object foi diferente, pegar de uma variavel ou trocar se for diferente
-                hitObject.GetComponent<Health>().TakeDamage(damage, dot, hit.point);
+                if (hitObject.CompareTag("Player")) //{}{} VERIFICAR SE O LAYER [E DE PLAYER
+                {
+                    // float dot = Vector3.Dot(rayDirection, hit.normal); //dot nao ta funcionando por algum motivo
+                    // comparar se o hit object foi diferente, pegar de uma variavel ou trocar se for diferente
+                    bool dot = Random.Range(-1, 1) > 0;
+                    hitObject.GetComponent<Health>().TakeDamage(damage, dot, hit.point);
+                }
             }
             
             --weapon.ammo;
@@ -177,7 +180,6 @@ public class WeaponScript : MonoBehaviour
             yield return null;
         }
         timerGO.SetActive(false);
-        
         weapon.ammo = partial ? weapon.magSize + 1 : weapon.magSize;
         ammoText.text = weapon.ammo.ToString("D2") + "/";
         isReloading = false;

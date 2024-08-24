@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5156996124077707944}
   - component: {fileID: 8944118848888867042}
   - component: {fileID: 5592564999741727157}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SPAS12PF
   m_TagString: Untagged
   m_Icon: {fileID: 0}

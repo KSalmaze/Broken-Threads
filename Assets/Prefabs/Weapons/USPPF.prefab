@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7569015121290203389}
   - component: {fileID: 7287917281546231803}
   - component: {fileID: 3364319410689082342}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: USPPF
   m_TagString: Untagged
   m_Icon: {fileID: 0}

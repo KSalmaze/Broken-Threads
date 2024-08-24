@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1933792248335203278}
   - component: {fileID: 7171699829935232497}
   - component: {fileID: 801217022148908225}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Colt1911PF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
