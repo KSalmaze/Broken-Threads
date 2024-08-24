@@ -5,7 +5,8 @@ public class Movement : MonoBehaviour
 {
     [Header("Movement")]
     public float maxSpeed = 5.0f;
-    public float jumpForce = 2.5f;
+    public float jumpForce = 5f;
+    private float currentJumpForce=5;
     private float fallSpeed, hinput, vinput;
     private Rigidbody rb;
     private Vector3 moveDirection, currentSpeed;
@@ -19,30 +20,38 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        doubleJump = true;
     }
     
     void Update()
     {
         hinput = Input.GetAxis("Horizontal");
         vinput = Input.GetAxis("Vertical");  //raycast pra ver se encosta no chao \ maxDistance=altura/2
-        isGrounded = Physics.Raycast(playerTransform.position, Vector3.down, 1.05f, groundMask);
+        isGrounded = Physics.Raycast(playerTransform.position, Vector3.down, 1.1f, groundMask);
+        rb.drag = isGrounded ? 2f : 0f;
         
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            isGrounded = false; 
-            doubleJump = true;
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
-        
-        if (doubleJump && !isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            doubleJump = false;
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            if (isGrounded)
+            {
+                isGrounded = false;
+                doubleJump = true;
+                Debug.Log("pulo normal");
+                rb.AddForce(Vector3.up * currentJumpForce, ForceMode.Impulse);
+            }
+            else if (doubleJump && !isGrounded)
+            {
+                doubleJump = false;
+                rb.velocity -= new Vector3(0f, rb.velocity.y, 0f);
+                Debug.Log("pulo duplo");
+                rb.AddForce(Vector3.up * currentJumpForce, ForceMode.Impulse);
+            }
         }
         
         if (!isGrounded && (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftAlt)))
         {
-            rb.AddForce(Vector3.down * (3 * jumpForce), ForceMode.Impulse);
+            rb.velocity -= new Vector3(0f, rb.velocity.y, 0f);
+            rb.AddForce(Vector3.down * (5 * jumpForce), ForceMode.Impulse);
             StartCoroutine(JumpHigher());
         }
         
@@ -59,8 +68,8 @@ public class Movement : MonoBehaviour
     
     IEnumerator JumpHigher()
     {
-        jumpForce = 4f;
+        currentJumpForce = 2*jumpForce;
         yield return new WaitForSecondsRealtime(0.5f);
-        jumpForce = 2.5f;
+        currentJumpForce = jumpForce;
     }
 }
