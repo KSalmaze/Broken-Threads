@@ -141,22 +141,28 @@ namespace Tests.NetworkTest.Connections
         {
             while (true)
             {
-                if (_playerList[0].TClient != null && _playerList[0].TClient.Available > 0)
+                try{
+                    if (_playerList[0].TClient != null && _playerList[0].TClient.Available > 0)
+                    {
+                        byte[] bytesFrom = new byte[10025];
+                        await _playerList[0].TcpStream.ReadAsync(bytesFrom, 0, bytesFrom.Length);
+
+                        if (bytesFrom.Length != 0)
+                        {
+                            MessageInterpreter.Instance.Interpret(serializer.Deserialize<Message>(bytesFrom));
+                        //    Debug.Log("Mensagem TCP recebida");
+                            _playerList[0].TcpStream.Flush();
+                        }
+                        else
+                        {
+                        //    Debug.Log("Error #45");
+                        }
+
+                        _playerList[0].TcpStream.Flush();
+                    }
+                } catch(Exception ex)
                 {
-                    byte[] bytesFrom = new byte[10025];
-                    await _playerList[0].TcpStream.ReadAsync(bytesFrom, 0, bytesFrom.Length);
-                
-                    if (bytesFrom.Length != 0)
-                    {
-                        MessageInterpreter.Instance.Interpret(serializer.Deserialize<Message>(bytesFrom));
-                        Debug.Log("Mensagem TCP recebida");
-                    }
-                    else
-                    {
-                        Debug.Log("Error #45");
-                    }
-                
-                    _playerList[0].TcpStream.Flush();
+                    Debug.LogError($"Erro durante o recebimento de uma mensagem TCP: {ex.Message}");
                 }
             }
         }
@@ -165,6 +171,7 @@ namespace Tests.NetworkTest.Connections
         {
             Task.Run(async () => await UDP_Send_Message(new Message("IGN",new byte[]{0})));
             Task.Run(async () => await TCP_Send_Message(new Message("IGN",new byte[]{0})));
+            Task.Run(async () => await TCP_Send_Message(new Message("LOBBY",new byte[]{0})));
         }
         
         public override void Quit()

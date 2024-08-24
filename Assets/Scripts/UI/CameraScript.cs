@@ -14,7 +14,7 @@ public class CameraScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         inputX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         inputY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

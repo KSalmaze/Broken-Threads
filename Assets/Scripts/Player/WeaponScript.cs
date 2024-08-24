@@ -41,7 +41,6 @@ public class WeaponScript : MonoBehaviour
     
     public Slider timerSlider;
     public GameObject timerGO;
-    public Rigidbody bulletRB;
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI magSizeText;
     private WeaponInfoStruct weapon;
@@ -108,11 +107,6 @@ public class WeaponScript : MonoBehaviour
     {
         for (int i = 0; i < bulletCount; i++)
         {
-            Rigidbody bullet = Instantiate(bulletRB, transform.position, transform.rotation);
-            Vector3 forceDirection = mainCamera.transform.forward;
-            float forceMagnitude = 25f + Random.Range(-spread/2, spread/2);
-            bullet.AddForce(forceDirection * forceMagnitude, ForceMode.Impulse);
-            
             float rangeLeft = 4 * weapon.range;
             Vector3 rayOrigin = mainCamera.transform.position;
             Vector3 rayDirection = mainCamera.transform.forward;
@@ -126,7 +120,7 @@ public class WeaponScript : MonoBehaviour
                                             //DMG * porcentagem de energia que a bala ainda tem
                 
                 GameObject hitObject = hit.collider.gameObject;
-                if (hitObject.CompareTag("Player")) //{}{} VERIFICAR SE O LAYER [E DE PLAYER
+                if (hitObject.CompareTag("Player"))
                 {
                     // float dot = Vector3.Dot(rayDirection, hit.normal); //dot nao ta funcionando por algum motivo
                     // comparar se o hit object foi diferente, pegar de uma variavel ou trocar se for diferente
