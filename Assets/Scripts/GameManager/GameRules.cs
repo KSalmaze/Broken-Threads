@@ -39,7 +39,7 @@ public class GameRules : MonoBehaviour
         textoPontuacaoOponente.text = pontuacaoOponente.ToString();
         
         tempo -= Time.deltaTime;
-        timer.text = tempo.ToString();
+        timer.text = tempo.ToString("D2");
         
         if (tempo <= 0)
         {
@@ -64,13 +64,13 @@ public class GameRules : MonoBehaviour
         {
             Debug.Log("Trigger 1");
             TriggerA();
-            tempo1 = 0;
+            tempo1 = -50;
         }
         if(tempo <= tempo2)
         {
             Debug.Log("Trigger 2");
             TriggerB();
-            tempo2 = 0;
+            tempo2 = -50;
         }
     }
 
