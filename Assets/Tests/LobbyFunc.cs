@@ -33,6 +33,11 @@ public class LobbyFunc : MonoBehaviour
         MessageInterpreter.Instance.AddFunction("START", StartMatch);
     }
 
+    private void StartMatch(byte[] bytes, string user)
+    {
+        
+    }
+    
     private void Lobby(byte[] bytes, string user)
     {
         funcao = GoToLobby;
@@ -76,10 +81,5 @@ public class LobbyFunc : MonoBehaviour
     private void Ignore(byte[] bytes, string user)
     {
         Debug.Log("TAG Ignorada");
-    }
-
-    private void StartMatch(byte[] bytes, string user)
-    {
-        
     }
 }
