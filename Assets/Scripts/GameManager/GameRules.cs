@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 public class GameRules : MonoBehaviour
 {
@@ -22,7 +20,7 @@ public class GameRules : MonoBehaviour
     [SerializeField] private float tempo2;
     
     public int pontuacao, pontuacaoOponente;
-    private float tempo = 0;
+    private float tempo;
     private MusicPlayer musicPlayer;
     
     // Start is called before the first frame update
@@ -40,10 +38,9 @@ public class GameRules : MonoBehaviour
         textoPontuacaoOponente.text = pontuacaoOponente.ToString();
         
         tempo -= Time.deltaTime;
-        timer.text = tempo.ToString();
-        
         if (tempo <= 0)
         {
+            timer.text = "0.00";
             if (pontuacao == pontuacaoOponente)
             {
                 Empate();
@@ -60,14 +57,25 @@ public class GameRules : MonoBehaviour
                 }
             }
         }
-
+        else  //so atualiza o tempo se for maior que zero
+        {
+            timer.text = tempo.ToString("F2");
+            switch (tempo)
+            {
+                case <= 30f and >  20f:
+                    timer.color = Color.Lerp(Color.white, Color.yellow, (30f - tempo) / 10f); break;
+                case <=20f and >10f:
+                    timer.color = Color.Lerp(Color.yellow, Color.red,   (20f - tempo) / 10f); break;
+            }
+        }
+        
         if (tempo <= tempo1)
         {
             Debug.Log("Trigger 1");
             TriggerA();
             tempo1 = -50;
         }
-        if(tempo <= tempo2)
+        if (tempo <= tempo2)
         {
             Debug.Log("Trigger 2");
             TriggerB();
