@@ -5,17 +5,27 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-    [SerializeField] private List<AudioClip> musicas;
+    [SerializeField] private List<AudioClip> musicasLista;
     [SerializeField] private List<string> nomeMusicas;
     [SerializeField] private AudioListener globalAudioListener;
     [SerializeField] private AudioSource globalAudioSorcer;
+    private Dictionary<string,AudioClip> _musicas;
+    
     private Transform _atualTransform;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         DontDestroyOnLoad(this);
         _atualTransform = this.GetComponent<Transform>();
+        
+        _musicas = new Dictionary<string, AudioClip>();
+        
+        // Inicializando dicionário
+        for(int i = 0; i < musicasLista.Count; i++)
+        {
+            _musicas.Add(nomeMusicas[i], musicasLista[i]);
+        }
     }
 
     private void Update()
@@ -26,31 +36,29 @@ public class MusicPlayer : MonoBehaviour
     // Update is called once per frame
     public void MudarMusica(string nomeMusica, bool loop = false)
     {
-        globalAudioSorcer.loop = loop;
-        
-        foreach (string nome in nomeMusicas)
+        if (!_musicas.ContainsKey(nomeMusica))
         {
-            if (nome.ToUpper().Contains(nomeMusica.ToUpper()))
-            {
-                globalAudioSorcer.clip = musicas[nomeMusicas.FindIndex(n => n == nome)];
-                globalAudioSorcer.Play();
-                return;
-            }
+            Debug.Log("Musica não encontrada");
+            return;
         }
+        
+        globalAudioSorcer.loop = loop;
+
+        globalAudioSorcer.Stop();
+        globalAudioSorcer.clip = _musicas[nomeMusica];
+        globalAudioSorcer.Play();
     }
 
     public void StartMatch()
     {
+        globalAudioSorcer.Stop();
         MudarMusica("Prosti", false);
         StartCoroutine(MusicaAcabou());
     }
 
     IEnumerator MusicaAcabou()
     {
-        while (globalAudioSorcer.isPlaying)
-        {
-            yield break;
-        }
+        yield return new WaitForSeconds(40);
         MudarMusica("Devil");
     }
 }

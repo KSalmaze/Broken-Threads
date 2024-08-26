@@ -84,4 +84,9 @@ public class MenuManager : MonoBehaviour
         ConnectionSingleton.Instance.Connection.TCP_Send_Message(new Message("START", new Byte[]{0}));
         SceneManager.LoadScene("Map");
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

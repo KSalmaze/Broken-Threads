@@ -1793,7 +1793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 491669067}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 432382171}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &491669067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4841,7 +4853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e6261a0a2024247892bd54d716c8c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicas:
+  musicasLista:
   - {fileID: 8300000, guid: 60e28a5591fd8044abd460e44f56206d, type: 3}
   - {fileID: 8300000, guid: 8640b66904eef4f4f81834d70f55a407, type: 3}
   - {fileID: 8300000, guid: a74e70b884b22e44789e6b2c0c4c750a, type: 3}
@@ -4850,7 +4862,7 @@ MonoBehaviour:
   - Menu
   - Equinox
   - Prosti
-  - The Devil
+  - Devil
   globalAudioListener: {fileID: 237222261}
   globalAudioSorcer: {fileID: 1442102543}
 --- !u!4 &1442102545

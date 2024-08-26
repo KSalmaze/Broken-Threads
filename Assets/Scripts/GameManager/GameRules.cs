@@ -30,6 +30,7 @@ public class GameRules : MonoBehaviour
     {
         tempo = duracaoDaPartida;
         musicPlayer = GameObject.Find("MusicPlayer").GetComponent<MusicPlayer>();
+        musicPlayer.StartMatch();
     }
 
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class GameRules : MonoBehaviour
         textoPontuacaoOponente.text = pontuacaoOponente.ToString();
         
         tempo -= Time.deltaTime;
-        timer.text = tempo.ToString("D2");
+        timer.text = tempo.ToString();
         
         if (tempo <= 0)
         {
