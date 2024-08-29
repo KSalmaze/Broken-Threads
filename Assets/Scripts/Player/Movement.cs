@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
     private bool isDashing;
     public float maxSpeed = 10f;
     private float currentMaxSpeed = 10f;
-    public float jumpForce = 5f;
-    private float currentJumpForce=5;
+    public float jumpForce = 10f;
+    private float currentJumpForce=10;
     private float fallSpeed, hinput, vinput;
     private Rigidbody rb;
     private Vector3 moveDirection, currentSpeed;
