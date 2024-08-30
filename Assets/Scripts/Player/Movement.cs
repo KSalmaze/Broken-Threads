@@ -31,7 +31,6 @@ public class Movement : MonoBehaviour
         hinput = Input.GetAxis("Horizontal");
         vinput = Input.GetAxis("Vertical");  //raycast pra ver se encosta no chao \ maxDistance=altura/2
         isGrounded = Physics.Raycast(playerTransform.position, Vector3.down, 1.05f, groundMask);
-        rb.drag = isGrounded ? 2f : 0f;
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing) StartCoroutine(Dash());
 
@@ -65,7 +64,7 @@ public class Movement : MonoBehaviour
         fallSpeed = rb.velocity.y;
         currentSpeed = rb.velocity;
         currentSpeed.y = 0;
-        currentSpeed *= 0.8f; //deixa o movimento mais controlavel
+        currentSpeed *= 0.75f; //deixa o movimento mais controlavel
         currentSpeed += moveDirection * currentMaxSpeed /5;
         currentSpeed = Vector3.ClampMagnitude(currentSpeed, currentMaxSpeed);
         currentSpeed.y = fallSpeed;
@@ -74,8 +73,8 @@ public class Movement : MonoBehaviour
 
     IEnumerator JumpHigher()
     {
-        currentJumpForce = 2*jumpForce;
-        yield return new WaitForSecondsRealtime(0.5f);
+        currentJumpForce = 1.5f*jumpForce;
+        yield return new WaitForSecondsRealtime(0.35f);
         currentJumpForce = jumpForce;
     }
 
