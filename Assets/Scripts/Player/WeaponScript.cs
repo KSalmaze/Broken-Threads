@@ -41,7 +41,6 @@ public class WeaponScript : MonoBehaviour
     
     public Slider timerSlider;
     public GameObject timerGO;
-    // public Transform playerTF;
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI magSizeText;
     private WeaponInfoStruct weapon;
@@ -74,7 +73,6 @@ public class WeaponScript : MonoBehaviour
         timerGO.SetActive(false);
         inventoryDict = inventory.InventoryDictReference; //referencia o dicionario do Inventario
 
-        // playerTF = gameObject.GetComponent<Transform>();
         weapon = transform.GetChild(0).GetChild(1).GetComponent<IWeaponDataProvider>().GetWeaponData();
         // Transform child = transform.GetChild(0);
         // IWeaponDataProvider iWeaponDataProvider = child.GetComponent<IWeaponDataProvider>();
@@ -128,7 +126,6 @@ public class WeaponScript : MonoBehaviour
                 GameObject hitObject = hit.collider.gameObject;
                 if (hitObject.CompareTag("Player"))
                 {
-                    // float dot = Vector3.Dot(rayDirection, hit.normal); //dot nao ta funcionando por algum motivo
                     // comparar se o hit object foi diferente, pegar de uma variavel ou trocar se for diferente
                     hitObject.GetComponent<Health>().TakeDamage(damage, hit.point, transform);
                 }
