@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 7698823094893672061}
   - component: {fileID: 4401780590011907190}
   - component: {fileID: 7922792498134533625}
+  - component: {fileID: 1812514137070403266}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -264,3 +265,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1812514137070403266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864509912524665517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10eaa30ad7d122316a71b83179540c92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textRotateTarget: {fileID: 0}

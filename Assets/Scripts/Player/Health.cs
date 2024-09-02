@@ -20,14 +20,26 @@ public class Health : MonoBehaviour
           gameRule = GameObject.Find("GameManager").GetComponent<GameRules>();
      }
 
-     public void TakeDamage(int damage, bool dot, Vector3 position)
+     public void TakeDamage(int damage, Vector3 position, Transform textRotateTarget)
      {
-          GameObject textInstance = Instantiate(worldSpaceUI, position, Quaternion.identity);
+          GameObject textInstance = Instantiate(worldSpaceUI, position, textRotateTarget.rotation); //Quaternion.identity);
           Destroy(textInstance, 0.65f);
           
           TextMeshProUGUI textMesh = textInstance.GetComponentInChildren<TextMeshProUGUI>();
           textMesh.text = damage.ToString();
+          textInstance.GetComponentInChildren<RotateText>().textRotateTarget = textRotateTarget;
+          textInstance.transform.rotation = textRotateTarget.rotation;
+          
+          Rigidbody2D textRB = textInstance.GetComponentInChildren<Rigidbody2D>();
+          Vector2 impulse = new Vector2(Random.Range(2f, 5f), Random.Range(2f, 5f));
+          impulse.x *= Random.Range(0,1f)>0.5f ? 1f : -1f;
+          textRB.AddForce(impulse, ForceMode2D.Impulse);
+          
+          // Vector3 perpendicularDirection = Vector3.Cross(transform.forward, Vector3.up).normalized;
+          // textRB.AddForce(perpendicularDirection * impulse, ForceMode.Impulse);
 
+          
+          
           isCrit = true;
           isHeadshot = true;
           switch ((isCrit ? 1 : 0) + (isHeadshot ? 2 : 0))
@@ -37,11 +49,6 @@ public class Health : MonoBehaviour
                case 3: textMesh.color = Color.red;    textMesh.text += "!!";
                        textMesh.fontStyle = FontStyles.Bold; break;
           }
-          
-          Rigidbody2D textRB = textInstance.GetComponentInChildren<Rigidbody2D>();
-          Vector2 impulse = new Vector2(Random.Range(2f, 5f), Random.Range(2f, 5f));
-          impulse.x *= dot ? 1f : -1f; // changed the direction of the impulse depending on the hit angle
-          textRB.AddForce(impulse, ForceMode2D.Impulse);
           
           health -= damage;
           if (health <= 0)

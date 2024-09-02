@@ -322,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 2007355092270407907}
   timerGO: {fileID: 5811975021785133574}
+  playerTF: {fileID: 3756527758745793427}
   ammoText: {fileID: 206930518871800530}
   magSizeText: {fileID: 5095556543342082008}
   isShootingShotgun: 0

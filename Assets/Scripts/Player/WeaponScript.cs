@@ -41,6 +41,7 @@ public class WeaponScript : MonoBehaviour
     
     public Slider timerSlider;
     public GameObject timerGO;
+    // public Transform playerTF;
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI magSizeText;
     private WeaponInfoStruct weapon;
@@ -50,25 +51,30 @@ public class WeaponScript : MonoBehaviour
     public bool isShootingShotgun;
     public bool isShootingAuto;
     public bool isReloading;
+    private bool hasAmmo = true;
 
     private Dictionary<int, WeaponInfoStruct> inventoryDict;
     public Inventory inventory;
     public Camera mainCamera;
 
-    private const int ShotgunDamage = 5;
+    //Shotgun
+    private const int ShotgunDamage = 10;
     private const int ShotgunBulletCount = 10;
     private const int ShotgunSpread = 25;
+    
+    //Auto
     private const int AutoDamage = 35;
+    private const int AutoBulletCount = 1;
     private const int AutoSpread = 4;
-    private bool hasAmmo = true;
-    // VARIAVEL DE FIRETIME
+    
 
     private void Start()
     {
         mainCamera = Camera.main;
         timerGO.SetActive(false);
         inventoryDict = inventory.InventoryDictReference; //referencia o dicionario do Inventario
-        
+
+        // playerTF = gameObject.GetComponent<Transform>();
         weapon = transform.GetChild(0).GetChild(1).GetComponent<IWeaponDataProvider>().GetWeaponData();
         // Transform child = transform.GetChild(0);
         // IWeaponDataProvider iWeaponDataProvider = child.GetComponent<IWeaponDataProvider>();
@@ -124,8 +130,7 @@ public class WeaponScript : MonoBehaviour
                 {
                     // float dot = Vector3.Dot(rayDirection, hit.normal); //dot nao ta funcionando por algum motivo
                     // comparar se o hit object foi diferente, pegar de uma variavel ou trocar se for diferente
-                    bool dot = Random.Range(-1, 1) > 0;
-                    hitObject.GetComponent<Health>().TakeDamage(damage, dot, hit.point);
+                    hitObject.GetComponent<Health>().TakeDamage(damage, hit.point, transform);
                 }
             }
             
@@ -141,7 +146,7 @@ public class WeaponScript : MonoBehaviour
         isShootingAuto = true;
         while (hasAmmo && Input.GetKey(KeyCode.Mouse0)) //se tiver municao e continuar atirando
         {
-            Shoot(AutoDamage, 1, AutoSpread);
+            Shoot(AutoDamage, AutoBulletCount, AutoSpread);
             ammoText.text = weapon.ammo.ToString("D2") + "/";
             yield return new WaitForSeconds(weapon.fireTime); //muda o tempo em relacao a fire rate da arma
         }
@@ -153,7 +158,7 @@ public class WeaponScript : MonoBehaviour
     {
         isShootingShotgun = true;
         Shoot(ShotgunDamage, ShotgunBulletCount, ShotgunSpread);
-        yield return new WaitForSeconds(10*weapon.fireTime); //muda o tempo em relacao a fire rate da arma
+        yield return new WaitForSeconds(10 * weapon.fireTime);
         isShootingShotgun = false;
     }
     
@@ -164,7 +169,9 @@ public class WeaponScript : MonoBehaviour
         if (isShootingAuto || isShootingShotgun)
         { StopCoroutine(shootingC); isShootingAuto = false; isShootingShotgun = false; }
         
-        float reloadTime = partial ? weapon.reloadTimePartial : weapon.reloadTime;
+        // float reloadTime = partial ? weapon.reloadTimePartial : weapon.reloadTime;
+        float reloadTime = weapon.reloadTime;
+
         timerGO.SetActive(true);
         timerSlider.maxValue = weapon.reloadTime;
         while (reloadTime >= 0)
@@ -174,7 +181,8 @@ public class WeaponScript : MonoBehaviour
             yield return null;
         }
         timerGO.SetActive(false);
-        weapon.ammo = partial ? weapon.magSize + 1 : weapon.magSize;
+        // weapon.ammo = partial ? weapon.magSize + 1 : weapon.magSize;
+        weapon.ammo = weapon.magSize;
         ammoText.text = weapon.ammo.ToString("D2") + "/";
         isReloading = false;
         hasAmmo = true;
@@ -183,7 +191,7 @@ public class WeaponScript : MonoBehaviour
     
     public void Stop()
     {
-        if (isReloading) StopCoroutine(reloadingC); isReloading = false;
+        if (isReloading) { StopCoroutine(reloadingC); isReloading = false; }
         if (isShootingAuto || isShootingShotgun)
         { StopCoroutine(shootingC); isShootingAuto = false; isShootingShotgun = false; }
     }
