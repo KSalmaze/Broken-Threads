@@ -47,7 +47,6 @@ public class Movement : MonoBehaviour
             {
                 doubleJump = false;
                 rb.velocity -= new Vector3(0f, rb.velocity.y, 0f);
-                Debug.Log("pulo duplo");
                 rb.AddForce(Vector3.up * currentJumpForce, ForceMode.Impulse);
             }
         }
