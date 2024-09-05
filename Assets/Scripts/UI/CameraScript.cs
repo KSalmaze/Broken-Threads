@@ -12,7 +12,7 @@ public class CameraScript : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-
+    
     // Update is called once per frame
     void LateUpdate()
     {
@@ -24,5 +24,7 @@ public class CameraScript : MonoBehaviour
         
         transform.localRotation = Quaternion.Euler(cameraYrotation, 0.0f, 0.0f);
         player.Rotate(Vector3.up * inputX);
+        
+        // transform.position=player.position;
     }
 }

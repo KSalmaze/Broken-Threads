@@ -27,7 +27,7 @@ public class WeaponScript : MonoBehaviour
     //
     //  verificar comentarios com {}{}
     //
-    // otimizacao do salmaze com varios computadores
+    // otimizacao do Salmaze com varios computadores
     // testar ate quando vale comprimir uma mensagem → testar no load o ping e velocidade de processamento
     // testar de novo a cada [medida de tempo] se tem que atualizar essa medida de processamento/compressao
     //
@@ -37,29 +37,38 @@ public class WeaponScript : MonoBehaviour
     // nao ta pegando as informacoes da arma nova corretamente depois que ta com o inventario cheio
 
     // a trabalho
-
+    //
     
+    [Header("UI Elements")]
     public Slider timerSlider;
     public GameObject timerGO;
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI magSizeText;
     private WeaponInfoStruct weapon;
     
+    [Header("Coroutines")]
     private Coroutine reloadingC;
     private Coroutine shootingC;
     public bool isShootingShotgun;
     public bool isShootingAuto;
     public bool isReloading;
     private bool hasAmmo = true;
-
-    private Dictionary<int, WeaponInfoStruct> inventoryDict;
-    public Inventory inventory;
+    
+    [Header("Definitions")]
     public Camera mainCamera;
-
+    private Transform muzzle;
+    public AudioSource audioSource;
+    public AudioClip autoShootSound;
+    public AudioClip shotgunShootSound;
+    public GameObject muzzleFlash;
+    
+    public Inventory inventory;
+    private Dictionary<int, WeaponInfoStruct> inventoryDict;
+    
     //Shotgun
     private const int ShotgunDamage = 10;
     private const int ShotgunBulletCount = 10;
-    private const int ShotgunSpread = 25;
+    private const int ShotgunSpread = 15;
     
     //Auto
     private const int AutoDamage = 35;
@@ -72,8 +81,10 @@ public class WeaponScript : MonoBehaviour
         mainCamera = Camera.main;
         timerGO.SetActive(false);
         inventoryDict = inventory.InventoryDictReference; //referencia o dicionario do Inventario
-
+        
+        //load weapon info
         weapon = transform.GetChild(0).GetChild(1).GetComponent<IWeaponDataProvider>().GetWeaponData();
+        muzzle = transform.GetChild(0).GetChild(1).GetChild(0);
         // Transform child = transform.GetChild(0);
         // IWeaponDataProvider iWeaponDataProvider = child.GetComponent<IWeaponDataProvider>();
         // weapon = iWeaponDataProvider.GetWeaponData();
@@ -107,8 +118,12 @@ public class WeaponScript : MonoBehaviour
     }
     
     
-    void Shoot(int damage, int bulletCount, int spread)
+    private void Shoot(int damage, int bulletCount, int spread)
     {
+        audioSource.PlayOneShot(autoShootSound);
+        GameObject muzzleFlareInstantiate = Instantiate(muzzleFlash, muzzle.position, muzzle.rotation);
+        Destroy(muzzleFlareInstantiate, Time.deltaTime);
+        
         for (int i = 0; i < bulletCount; i++)
         {
             float rangeLeft = 4 * weapon.range;
@@ -144,7 +159,6 @@ public class WeaponScript : MonoBehaviour
         while (hasAmmo && Input.GetKey(KeyCode.Mouse0)) //se tiver municao e continuar atirando
         {
             Shoot(AutoDamage, AutoBulletCount, AutoSpread);
-            ammoText.text = weapon.ammo.ToString("D2") + "/";
             yield return new WaitForSeconds(weapon.fireTime); //muda o tempo em relacao a fire rate da arma
         }
         isShootingAuto = false;

@@ -8,8 +8,8 @@ public class Movement : MonoBehaviour
     private bool isDashing;
     public float maxSpeed = 10f;
     private float currentMaxSpeed = 10f;
-    public float jumpForce = 10f;
-    private float currentJumpForce=10;
+    public float jumpForce = 7;
+    private float currentJumpForce = 7;
     private float fallSpeed, hinput, vinput;
     private Rigidbody rb;
     private Vector3 moveDirection, currentSpeed;
@@ -40,7 +40,6 @@ public class Movement : MonoBehaviour
             {
                 isGrounded = false;
                 doubleJump = true;
-                Debug.Log("pulo normal");
                 rb.AddForce(Vector3.up * currentJumpForce, ForceMode.Impulse);
             }
             else if (doubleJump && !isGrounded)
