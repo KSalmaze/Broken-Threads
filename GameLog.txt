@@ -437,3 +437,10 @@ UnityEngine.Debug:Log (object)
 LobbyFunc:GoToLobby (byte[],string) (at Assets/Tests/LobbyFunc.cs:80)
 LobbyFunc:Update () (at Assets/Tests/LobbyFunc.cs:25)
 
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+MenuManager.OnApplicationQuit () (at Assets/Tests/MenuManager.cs:69)
+

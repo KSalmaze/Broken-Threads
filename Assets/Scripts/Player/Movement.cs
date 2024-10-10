@@ -28,7 +28,7 @@ public class Movement : MonoBehaviour
         hinput = Input.GetAxis("Horizontal");
         vinput = Input.GetAxis("Vertical");  //raycast pra ver se encosta no chao \ maxDistance=altura/2
         isGrounded = Physics.Raycast(playerTransform.position, Vector3.down, 1.1f, groundMask);
-        rb.drag = isGrounded ? 2f : 0f;
+        rb.linearDamping = isGrounded ? 2f : 0f;
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
             else if (doubleJump && !isGrounded)
             {
                 doubleJump = false;
-                rb.velocity -= new Vector3(0f, rb.velocity.y, 0f);
+                rb.linearVelocity -= new Vector3(0f, rb.linearVelocity.y, 0f);
                 Debug.Log("pulo duplo");
                 rb.AddForce(Vector3.up * currentJumpForce, ForceMode.Impulse);
             }
@@ -50,20 +50,20 @@ public class Movement : MonoBehaviour
         
         if (!isGrounded && (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.LeftAlt)))
         {
-            rb.velocity -= new Vector3(0f, rb.velocity.y, 0f);
+            rb.linearVelocity -= new Vector3(0f, rb.linearVelocity.y, 0f);
             rb.AddForce(Vector3.down * (5 * jumpForce), ForceMode.Impulse);
             StartCoroutine(JumpHigher());
         }
         
         //input.normalize \ salva a V(y) \ "acelera" o player limita a velocidade pra maxSpeed \ restaura o V(y)
         moveDirection= (playerTransform.right * hinput + playerTransform.forward * vinput).normalized;
-        fallSpeed = rb.velocity.y;
-        currentSpeed = rb.velocity;
+        fallSpeed = rb.linearVelocity.y;
+        currentSpeed = rb.linearVelocity;
         currentSpeed.y = 0;
         currentSpeed += moveDirection * maxSpeed /5;
         currentSpeed = Vector3.ClampMagnitude(currentSpeed, maxSpeed);
         currentSpeed.y = fallSpeed;
-        rb.velocity = currentSpeed;
+        rb.linearVelocity = currentSpeed;
     }
     
     IEnumerator JumpHigher()
