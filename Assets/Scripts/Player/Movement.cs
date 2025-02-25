@@ -40,6 +40,7 @@ public class Movement : MonoBehaviour
             {
                 isGrounded = false;
                 doubleJump = true;
+                Debug.Log("pulo normal");
                 rb.AddForce(Vector3.up * currentJumpForce, ForceMode.Impulse);
             }
             else if (doubleJump && !isGrounded)
