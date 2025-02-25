@@ -8,6 +8,16 @@ namespace Tests.NetworkTest.Connections
     {
         protected MessageInterpreter messageInterpreter = MessageInterpreter.Instance;
         protected Serializer serializer = new BinarySerializer();
+
+        public void SendTcpMessage(Message message)
+        {
+            Task.Run(async () => await TCP_Send_Message(message));
+        }
+        
+        public void SendUdpMessage(Message message)
+        {
+            Task.Run(async () => await UDP_Send_Message(message));
+        }
         
         public abstract Task TCP_Send_Message(Message message);
 
