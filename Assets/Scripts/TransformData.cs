@@ -1,21 +1,26 @@
-using System;
 using UnityEngine;
 
-namespace DefaultNamespace
+[System.Serializable]
+public class TransformData
 {
-    [System.Serializable]
-    public class TransformData
+    public float[] position;
+    public float[] rotation;
+    
+    public TransformData(Transform transform)
     {
-        public float[] position;
-        
-        public TransformData(Transform transform)
+        position = new []
         {
-            position = new float[]
-            {
-                transform.position.x,
-                transform.position.y,
-                transform.position.z
-            };
-        }
+            transform.position.x,
+            transform.position.y,
+            transform.position.z
+        };
+
+        rotation = new[]
+        {
+            transform.rotation.x,
+            transform.rotation.y,
+            transform.rotation.z,
+            transform.rotation.w
+        };
     }
 }

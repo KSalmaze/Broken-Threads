@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace;
 using Tests.NetworkTest.Serializers;
 using UnityEngine;
 
