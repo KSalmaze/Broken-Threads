@@ -66,7 +66,10 @@ public class MenuManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
-        ConnectionSingleton.Instance.Connection.Quit();
+        if (ConnectionSingleton.Instance.Connection != null)
+        {
+            ConnectionSingleton.Instance.Connection.Quit();
+        }
     }
 
     private string PlayerName()

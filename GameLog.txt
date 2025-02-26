@@ -528,3 +528,14 @@ Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.tx
 Exception: NullReferenceException: Object reference not set to an instance of an object
 MenuManager.OnApplicationQuit () (at <9d15d00b291f40d1b03fdd9c1bee4073>:0)
 
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Exception: NullReferenceException: Object reference not set to an instance of an object
+MenuManager.OnApplicationQuit () (at Assets/Tests/MenuManager.cs:69)
+
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
