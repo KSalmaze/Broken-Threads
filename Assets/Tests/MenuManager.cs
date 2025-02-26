@@ -15,6 +15,11 @@ public class MenuManager : MonoBehaviour
         gameo.SetActive(!gameo.activeSelf);
     }
 
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+    
     public void SetActive(GameObject gameo)
     {
         gameo.SetActive(true);

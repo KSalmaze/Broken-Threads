@@ -1473,7 +1473,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 430054186}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 432382171}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Credits
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &430054186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4886,7 +4898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicasLista:
   - {fileID: 8300000, guid: 60e28a5591fd8044abd460e44f56206d, type: 3}
-  - {fileID: 8300000, guid: 1eeebfc90d359a64fbb374289bb0d1c1, type: 3}
+  - {fileID: 8300000, guid: d08304c639e39a64a9baae28ad5bdd25, type: 3}
   - {fileID: 8300000, guid: a74e70b884b22e44789e6b2c0c4c750a, type: 3}
   - {fileID: 8300000, guid: d818e201f39290843acd3f5e7a01dadc, type: 3}
   nomeMusicas:

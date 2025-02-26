@@ -169,7 +169,7 @@ public class WeaponController : MonoBehaviour
     {
         isShooting = true; 
         Shoot();
-        yield return new WaitForSeconds(1f/1300);
+        yield return new WaitForSeconds(60f/1800);
         if (data.ammo !=0)
         {
             while (data.ammo > 0 && Input.GetKey(KeyCode.Mouse0))
