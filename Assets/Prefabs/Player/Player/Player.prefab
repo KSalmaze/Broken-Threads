@@ -159,10 +159,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
-  regenPerSecond: 1
-  regenIncreaseRate: 0.25
-  regenTarget: 10
-  regenDelayTime: 4
+  regenPerSecond: 2
+  regenIncreaseRate: 1
+  regenTarget: 17
+  regenDelayTime: 2.5
   worldSpaceUIPrefab: {fileID: 3433633269811599418, guid: 7e3e78000d4e32194801cbf4ed71b6c4, type: 3}
 --- !u!114 &1605655904093145302
 MonoBehaviour:
