@@ -64,7 +64,6 @@ public class WeaponSwitcher : MonoBehaviour
     {
         if (isSwitching) return;
         
-        if (Input.GetKeyDown(KeyCode.Equals)) LoadWeapon(); //{}{}
         if (Input.GetKeyDown(KeyCode.T) && inventory.childCount > 2)
         {
             if (currentWeapon == 1)

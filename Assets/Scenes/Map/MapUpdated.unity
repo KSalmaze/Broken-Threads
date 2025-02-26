@@ -13085,7 +13085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hostSpawn: {fileID: 2099848038}
   _clientSpawn: {fileID: 1860634621}
-  PlayerPrefab: {fileID: 0}
+  PlayerPrefab: {fileID: 1887830352}
   RivalPrefab: {fileID: 2379934009280402806}
 --- !u!114 &1501971878
 MonoBehaviour:
@@ -13714,6 +13714,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1887830352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 654281398916619796, guid: 303eb4bfeaaf2d906b9ed7cae586dd31, type: 3}
+  m_PrefabInstance: {fileID: 947963822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1932464255 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4057016475818478, guid: 1906dcb2568c13f4c962c7e0c0d82ac3, type: 3}
