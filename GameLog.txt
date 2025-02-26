@@ -539,3 +539,7 @@ Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.tx
 UnityEngine.Debug:Log (object)
 Debuger:Start () (at Assets/Tests/Debuger.cs:13)
 
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
