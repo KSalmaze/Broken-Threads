@@ -103,9 +103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c693b559027f1e10c8e19f0bdc551c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 11400000, guid: d04e70ddffcf332e497ca823255b23ac, type: 2}
+  shootSound: {fileID: 8300000, guid: 726945a351c796e0697b51dfff04046a, type: 3}
+  muzzleFlash: {fileID: 8887728906692807729, guid: 42a558a4fd35615798a93eb0d751ee23, type: 3}
+  template: {fileID: 11400000, guid: 3bfaab4c13e6a85b184e09ba4942e8de, type: 2}
   data:
-    isClosedBolt: 0
+    hasFireSelector: 0
     isFullAuto: 0
     weaponName: 
     damage: 0
@@ -124,10 +126,6 @@ MonoBehaviour:
     range: 0
     decay: 0
     recoil: 0
-  shootSound: {fileID: 8300000, guid: 726945a351c796e0697b51dfff04046a, type: 3}
-  muzzleFlash: {fileID: 8887728906692807729, guid: 42a558a4fd35615798a93eb0d751ee23, type: 3}
-  isReloading: 0
-  isShooting: 0
 --- !u!82 &6316190360910902869
 AudioSource:
   m_ObjectHideFlags: 0

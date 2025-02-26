@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootSound: {fileID: 8300000, guid: 726945a351c796e0697b51dfff04046a, type: 3}
   muzzleFlash: {fileID: 8887728906692807729, guid: 42a558a4fd35615798a93eb0d751ee23, type: 3}
-  template: {fileID: 11400000, guid: 6326bc2f670e54a50ad2c454c93a4e9b, type: 2}
+  template: {fileID: 11400000, guid: 05ac7753f6f4b4f9488a56f4ab98e901, type: 2}
   data:
     hasFireSelector: 0
     isFullAuto: 0
@@ -146,8 +146,6 @@ MonoBehaviour:
     bulletCount: 0
     fireRate: 0
     fireTime: 0
-    burstFireRate: 0
-    burstFireTime: 0
     magSize: 0
     ammo: 0
     totalAmmo: 0
