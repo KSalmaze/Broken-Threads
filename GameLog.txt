@@ -565,3 +565,37 @@ Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.tx
 UnityEngine.Debug:Log (object)
 Debuger:Start () (at Assets/Tests/Debuger.cs:13)
 
+Log: Custom Logger Initialized. Log file at: C:\Github\Broken-Threads\GameLog.txt
+UnityEngine.Debug:Log (object)
+Debuger:Start () (at Assets/Tests/Debuger.cs:13)
+
+Error: Scene 'Menu' couldn't be loaded because it has not been added to the active build profile or shared scene list or the AssetBundle has not been loaded.
+To add a scene to the active build profile or shared scene list use the menu File->Build Profiles
+UnityEngine.SceneManagement.SceneManager:LoadScene (string)
+MenuManager:LoadScene (string) (at Assets/Tests/MenuManager.cs:20)
+UnityEngine.EventSystems.EventSystem:Update ()
+
+Error: Scene 'Menu' couldn't be loaded because it has not been added to the active build profile or shared scene list or the AssetBundle has not been loaded.
+To add a scene to the active build profile or shared scene list use the menu File->Build Profiles
+UnityEngine.SceneManagement.SceneManager:LoadScene (string)
+MenuManager:LoadScene (string) (at Assets/Tests/MenuManager.cs:20)
+UnityEngine.EventSystems.EventSystem:Update ()
+
+Error: Scene 'Menu' couldn't be loaded because it has not been added to the active build profile or shared scene list or the AssetBundle has not been loaded.
+To add a scene to the active build profile or shared scene list use the menu File->Build Profiles
+UnityEngine.SceneManagement.SceneManager:LoadScene (string)
+MenuManager:LoadScene (string) (at Assets/Tests/MenuManager.cs:20)
+UnityEngine.EventSystems.EventSystem:Update ()
+
+Error: Scene 'Menu' couldn't be loaded because it has not been added to the active build profile or shared scene list or the AssetBundle has not been loaded.
+To add a scene to the active build profile or shared scene list use the menu File->Build Profiles
+UnityEngine.SceneManagement.SceneManager:LoadScene (string)
+MenuManager:LoadScene (string) (at Assets/Tests/MenuManager.cs:20)
+UnityEngine.EventSystems.EventSystem:Update ()
+
+Error: Scene 'Menu' couldn't be loaded because it has not been added to the active build profile or shared scene list or the AssetBundle has not been loaded.
+To add a scene to the active build profile or shared scene list use the menu File->Build Profiles
+UnityEngine.SceneManagement.SceneManager:LoadScene (string)
+MenuManager:LoadScene (string) (at Assets/Tests/MenuManager.cs:20)
+UnityEngine.EventSystems.EventSystem:Update ()
+
